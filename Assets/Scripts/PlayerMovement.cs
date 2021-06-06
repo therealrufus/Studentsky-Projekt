@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Vector3 SPEED;
     [HideInInspector]
-    public Vector3 horizontalSpeed;
-    [HideInInspector]
     public bool grounded;
     [HideInInspector]
     public Vector3 arrowInput;
@@ -32,12 +30,16 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         arrowInput = GetMovementInput();
-        horizontalSpeed = new Vector3(SPEED.x, 0, SPEED.z);
         movement.Move();
         ApplyMovement();
+    }
+
+    void Update()
+    {
+        
     }
 
     Vector3 GetMovementInput()
@@ -50,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.DrawRay(transform.position, SPEED, Color.red);
 
-        controller.Move(SPEED * Time.deltaTime);
+        CollisionFlags flags = controller.Move(SPEED * Time.deltaTime);
+        if (flags == CollisionFlags.None) grounded = false;
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {

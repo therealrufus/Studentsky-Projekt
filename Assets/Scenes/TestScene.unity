@@ -1516,7 +1516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045804398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.82, z: 0}
+  m_LocalPosition: {x: 0, y: 1.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 112323454}
@@ -1554,7 +1554,6 @@ MonoBehaviour:
   movement: {fileID: 2045804405}
   controller: {fileID: 0}
   SPEED: {x: 0, y: 0, z: 0}
-  horizontalSpeed: {x: 0, y: 0, z: 0}
   grounded: 0
   arrowInput: {x: 0, y: 0, z: 0}
 --- !u!114 &2045804405
@@ -1570,7 +1569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 2045804404}
-  walkAcceleration: 20
-  walkDeceleration: 1
+  walkAcceleration: 100
+  walkDeceleration: 30
   walkSpeed: 10
+  airAcceleration: 20
   jumpForce: 10
