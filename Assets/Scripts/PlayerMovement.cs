@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundedAngle;
     public float gravity = 10f;
     public PlayerMoveOption movement;
+    public PlayerMoveOption crouchMovement;
 
     [HideInInspector]
     public CharacterController controller;
@@ -32,14 +33,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        arrowInput = GetMovementInput();
-        movement.Move();
-        ApplyMovement();
+
     }
 
     void Update()
     {
-        
+        arrowInput = GetMovementInput();
+        if (!Input.GetKey(KeyCode.LeftControl))
+            movement.Move();
+        else crouchMovement.Move();
+
+        ApplyMovement();
     }
 
     Vector3 GetMovementInput()
@@ -58,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         grounded = 1 - Vector3.Dot(hit.normal, Vector3.up) <= groundedAngle;
-        movement.Collide(hit);
+        if (!Input.GetKey(KeyCode.LeftControl))
+            movement.Collide(hit);
+        else crouchMovement.Collide(hit);
     }
 }
