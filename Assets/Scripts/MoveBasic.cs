@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class MoveBasic : PlayerMoveOption
 {
+    [Space]
     public float walkAcceleration = 100;
     public float walkDeceleration = 30;
     public float walkSpeed = 10;
     public float airAcceleration = 20;
     public float airSpeed = 2;
     public float jumpForce = 10;
+
+    public override bool CheckState()
+    {
+        return true;
+    }
 
     public override void Move()
     {

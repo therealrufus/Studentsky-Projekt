@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerMoveOption : MonoBehaviour
 {
+    [HideInInspector]
     public PlayerMovement master;
+
+    public int priority;
 
     protected Vector3 lastNormal = Vector3.zero;
 
@@ -29,5 +32,10 @@ public class PlayerMoveOption : MonoBehaviour
 
         Vector3 collisionForce = Vector3.Project(master.SPEED, hit.normal);
         master.SPEED -= collisionForce;
+    }
+
+    public virtual bool CheckState()
+    {
+        return false;
     }
 }

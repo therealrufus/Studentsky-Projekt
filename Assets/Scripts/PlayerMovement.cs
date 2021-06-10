@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -8,8 +9,9 @@ public class PlayerMovement : MonoBehaviour
     [Range(0, 1)]
     public float groundedAngle;
     public float gravity = 10f;
-    public PlayerMoveOption movement;
-    public PlayerMoveOption crouchMovement;
+
+    public PlayerMoveOption[] moves;
+    int currentMove;
 
     [HideInInspector]
     public CharacterController controller;
@@ -20,30 +22,29 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Vector3 arrowInput;
 
-    [HideInInspector]
-    public float planeSpeedSqrt
-    {
-        get { return new Vector2(SPEED.x, SPEED.z).sqrMagnitude; }
-    }
+    public Text speedText;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-    }
 
-    private void FixedUpdate()
-    {
-
+        foreach (var move in moves)
+        {
+            move.master = this;
+        }
     }
 
     void Update()
     {
         arrowInput = GetMovementInput();
-        if (!Input.GetKey(KeyCode.LeftControl))
-            movement.Move();
-        else crouchMovement.Move();
+
+        CheckMoves();
+
+        moves[currentMove].Move();
 
         ApplyMovement();
+
+        speedText.text = Mathf.Round(SPEED.magnitude).ToString();
     }
 
     Vector3 GetMovementInput()
@@ -62,8 +63,22 @@ public class PlayerMovement : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         grounded = 1 - Vector3.Dot(hit.normal, Vector3.up) <= groundedAngle;
-        if (!Input.GetKey(KeyCode.LeftControl))
-            movement.Collide(hit);
-        else crouchMovement.Collide(hit);
+        moves[currentMove].Collide(hit);
+    }
+
+    void CheckMoves()
+    {
+        int priority = -99999;
+        for (int i = 0; i < moves.Length; i++)
+        {
+            if (moves[i].priority > priority)
+            {
+                if (moves[i].CheckState())
+                {
+                    currentMove = i;
+                    priority = moves[i].priority;
+                }
+            }
+        }
     }
 }

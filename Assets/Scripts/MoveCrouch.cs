@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class MoveCrouch : PlayerMoveOption
 {
-    public float airAcceleration, airSpeed, jumpForce;
+    [Space]
+    public MoveBasic basicMovement;
+
+    public float airAccelerationMultiplier = 0.5f;
     public float Deceleration;
     public float airGravityMultiplier;
     public float groundGravityMultiplier;
+
+    public override bool CheckState()
+    {
+        return Input.GetKey(KeyCode.LeftControl);
+    }
 
     public override void Move()
     {
@@ -22,7 +30,7 @@ public class MoveCrouch : PlayerMoveOption
     {
         Fall();
 
-        if (Input.GetKey(KeyCode.Space)) { master.SPEED.y = jumpForce; master.grounded = false; }
+        if (Input.GetKey(KeyCode.Space)) { Jump(); }
 
         master.SPEED -= Vector3.ClampMagnitude(horizontalSpeed.normalized * Time.deltaTime * Deceleration, horizontalSpeed.magnitude);
     }
@@ -30,9 +38,9 @@ public class MoveCrouch : PlayerMoveOption
     void AirMovement()
     {
         Vector3 input = master.arrowInput;
-        input *= Time.deltaTime * airAcceleration;
+        input *= Time.deltaTime * basicMovement.airAcceleration * airAccelerationMultiplier;
         Vector3 result = horizontalSpeed + input;
-        result = Vector3.ClampMagnitude(result, Mathf.Max(airSpeed, horizontalSpeed.magnitude));
+        result = Vector3.ClampMagnitude(result, Mathf.Max(basicMovement.airSpeed, horizontalSpeed.magnitude));
         master.SPEED = result + Vector3.up * master.SPEED.y;
 
         Fall();
@@ -43,5 +51,13 @@ public class MoveCrouch : PlayerMoveOption
         if (master.grounded)
             master.SPEED.y -= master.gravity * Time.deltaTime * groundGravityMultiplier;
         else master.SPEED.y -= master.gravity * Time.deltaTime * airGravityMultiplier;
+    }
+
+    void Jump()
+    {
+        Vector3 speed = transform.forward;
+        speed *= horizontalSpeed.magnitude;
+        master.SPEED = speed + Vector3.up * basicMovement.jumpForce;
+        master.grounded = false;
     }
 }
