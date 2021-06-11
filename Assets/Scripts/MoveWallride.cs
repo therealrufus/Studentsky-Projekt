@@ -9,11 +9,15 @@ public class MoveWallride : PlayerMoveOption
 
     public float gravity;
     public float Deceleration;
+    public float stickToSurfaceForce;
     [Range(0, 1)]
     public float maxAngle;
     [Range(0, 1)]
     public float maxAngleUp;
     public float maxDistance;
+    [Header("Jumping")]
+    public float jumpForceUp;
+    public float jumpForceSide;
 
     Vector3 normal;
 
@@ -55,14 +59,24 @@ public class MoveWallride : PlayerMoveOption
         result = Vector3.ClampMagnitude(result, Mathf.Max(basicMovement.airSpeed, horizontalSpeed.magnitude));
         master.SPEED = result + Vector3.up * master.SPEED.y;
 
+        master.SPEED -= normal * stickToSurfaceForce * Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Space)) Jump();
         Fall();
     }
 
     protected override void Fall()
     {
-        if (master.SPEED.y < -1 * gravity) 
+        if (master.SPEED.y < -1 * gravity)
         {
             master.SPEED -= Vector3.up * -1 * Deceleration * Time.deltaTime;
         }
+        else base.Fall();
+    }
+
+    void Jump()
+    {
+        master.SPEED.y = jumpForceUp;
+        master.SPEED += normal * jumpForceSide;
     }
 }

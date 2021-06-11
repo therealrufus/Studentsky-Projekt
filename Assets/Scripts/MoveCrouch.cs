@@ -12,6 +12,9 @@ public class MoveCrouch : PlayerMoveOption
     public float airGravityMultiplier;
     public float groundGravityMultiplier;
 
+    [Range(0, 1)]
+    public float jumpDirectionalForce;
+
     public override bool CheckState()
     {
         return Input.GetKey(KeyCode.LeftControl);
@@ -57,6 +60,11 @@ public class MoveCrouch : PlayerMoveOption
     {
         Vector3 speed = transform.forward;
         speed *= horizontalSpeed.magnitude;
+
+        float dotProduct = 0.5f * Vector3.Dot(transform.forward, horizontalSpeed.normalized) + 0.5f;
+
+        speed *= Mathf.Clamp(dotProduct+ jumpDirectionalForce, 0, 1);
+
         master.SPEED = speed + Vector3.up * basicMovement.jumpForce;
         master.grounded = false;
     }
