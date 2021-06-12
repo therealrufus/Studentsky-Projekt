@@ -7,13 +7,15 @@ public class MoveCrouch : PlayerMoveOption
     [Space]
     public MoveBasic basicMovement;
 
-    public float airAccelerationMultiplier = 0.5f;
-    public float Deceleration;
-    public float airGravityMultiplier;
-    public float groundGravityMultiplier;
+    [Range(0, 1)]
+    [Tooltip("How much is the player boosted on inpact")]public float boostForce;
+    [Tooltip("should the player strafe slower when crouching in air?")] public float airAccelerationMultiplier = 0.5f;
+    [Tooltip("ground friction")] public float deceleration;
+    [Tooltip("should the player be heavier when crouching?")] public float airGravityMultiplier;
+    [Tooltip("bigger value, bigger acceleration on slopes")] public float groundGravityMultiplier;
 
     [Range(0, 1)]
-    public float jumpDirectionalForce;
+    [Tooltip("how much speed should be preserved when jumping in ")] public float jumpDirectionalForce;
 
     public override bool CheckState()
     {
@@ -35,7 +37,7 @@ public class MoveCrouch : PlayerMoveOption
 
         if (Input.GetKey(KeyCode.Space)) { Jump(); }
 
-        master.SPEED -= Vector3.ClampMagnitude(horizontalSpeed.normalized * Time.deltaTime * Deceleration, horizontalSpeed.magnitude);
+        master.SPEED -= Vector3.ClampMagnitude(horizontalSpeed.normalized * Time.deltaTime * deceleration, horizontalSpeed.magnitude);
     }
 
     void AirMovement()
@@ -67,5 +69,19 @@ public class MoveCrouch : PlayerMoveOption
 
         master.SPEED = speed + Vector3.up * basicMovement.jumpForce;
         master.grounded = false;
+    }
+
+    public override void Collide(ControllerColliderHit hit)
+    {
+        lastNormal = hit.normal;
+
+        if (Vector3.Dot(lastNormal * -1, master.SPEED) > 0)
+        {
+            Vector3 collisionForce = Vector3.Project(master.SPEED, lastNormal);
+            Vector3 optionOne = master.SPEED - collisionForce;
+            Vector3 optionTwo = optionOne.normalized * master.SPEED.magnitude;
+            //h
+            master.SPEED = Vector3.Lerp(optionOne, optionTwo, boostForce);
+        }
     }
 }

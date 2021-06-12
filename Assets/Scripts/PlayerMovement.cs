@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     [Range(0, 1)]
-    public float groundedAngle;
+    [Tooltip("(not working) the minimal angle to be grounded")]public float groundedAngle;
     public float gravity = 10f;
 
     public PlayerMoveOption[] moves;
@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         ApplyMovement();
 
         speedText.text = Mathf.Round(SPEED.magnitude).ToString();
+        speedText.color = grounded ? Color.black : Color.grey;
     }
 
     Vector3 GetMovementInput()

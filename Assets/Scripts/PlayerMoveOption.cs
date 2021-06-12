@@ -6,7 +6,7 @@ public class PlayerMoveOption : MonoBehaviour
 {
     [HideInInspector]
     public PlayerMovement master;
-
+    [Tooltip("the priority of this move in comparison of others")]
     public int priority;
 
     protected Vector3 lastNormal = Vector3.zero;
@@ -14,6 +14,7 @@ public class PlayerMoveOption : MonoBehaviour
     protected Vector3 horizontalSpeed
     {
         get { return Vector3.ProjectOnPlane(new Vector3(master.SPEED.x, 0, master.SPEED.z), lastNormal); }
+        //get { return new Vector3(master.SPEED.x, 0, master.SPEED.z); }
     }
 
     public virtual void Move()
@@ -30,8 +31,11 @@ public class PlayerMoveOption : MonoBehaviour
     {
         lastNormal = hit.normal;
 
-        Vector3 collisionForce = Vector3.Project(master.SPEED, hit.normal);
-        master.SPEED -= collisionForce;
+        if (Vector3.Dot(lastNormal * -1, master.SPEED) > 0)
+        {
+            Vector3 collisionForce = Vector3.Project(master.SPEED, lastNormal);
+            master.SPEED -= collisionForce;
+        }
     }
 
     public virtual bool CheckState()
