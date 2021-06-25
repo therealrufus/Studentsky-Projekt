@@ -8,11 +8,18 @@ public class MoveCrouch : PlayerMoveOption
     public MoveBasic basicMovement;
 
     [Range(0, 1)]
-    [Tooltip("How much is the player boosted on inpact")]public float boostForce;
-    [Tooltip("should the player strafe slower when crouching in air?")] public float airAccelerationMultiplier = 0.5f;
-    [Tooltip("ground friction")] public float deceleration;
-    [Tooltip("should the player be heavier when crouching?")] public float airGravityMultiplier;
-    [Tooltip("bigger value, bigger acceleration on slopes")] public float groundGravityMultiplier;
+    [Tooltip("How much is the player boosted on inpact")]
+    public float boostForce;
+    [Tooltip("should the player strafe slower when crouching in air?")] 
+    public float airAccelerationMultiplier = 0.5f;
+    [Tooltip("ground friction")] 
+    public float deceleration;
+    [Tooltip("should the player be heavier when crouching?")] 
+    public float airGravityMultiplier;
+    [Tooltip("bigger value, bigger acceleration on slopes")] 
+    public float groundGravityMultiplier;
+    [Tooltip("bigger value, bigger acceleration on slopes")] 
+    public float groundClimbGravityMultiplier;
 
     [Range(0, 1)]
     [Tooltip("how much speed should be preserved when jumping in ")] public float jumpDirectionalForce;
@@ -53,9 +60,7 @@ public class MoveCrouch : PlayerMoveOption
 
     protected override void Fall()
     {
-        if (master.grounded)
-            master.SPEED.y -= master.gravity * Time.deltaTime * groundGravityMultiplier;
-        else master.SPEED.y -= master.gravity * Time.deltaTime * airGravityMultiplier;
+        master.SPEED.y -= master.gravity * Time.deltaTime * GravityToApply();
     }
 
     void Jump()
@@ -80,8 +85,30 @@ public class MoveCrouch : PlayerMoveOption
             Vector3 collisionForce = Vector3.Project(master.SPEED, lastNormal);
             Vector3 optionOne = master.SPEED - collisionForce;
             Vector3 optionTwo = optionOne.normalized * master.SPEED.magnitude;
-            //h
+            //tohle bych asi mel okomentovat
             master.SPEED = Vector3.Lerp(optionOne, optionTwo, boostForce);
         }
+    }
+
+    float GravityToApply()
+    {
+        float force = airGravityMultiplier;
+
+        if (master.grounded)
+        {
+            force = groundGravityMultiplier;
+
+            Vector3 horizontalPlayerDir = master.SPEED;
+            horizontalPlayerDir.y = 0;
+            horizontalPlayerDir = horizontalPlayerDir.normalized;
+
+            Vector3 groundDir = lastNormal;
+            groundDir.y = 0;
+            groundDir = groundDir.normalized;
+
+            if(Vector3.Dot(horizontalPlayerDir, groundDir) < 0)
+                force = groundClimbGravityMultiplier;
+        }
+        return force;
     }
 }

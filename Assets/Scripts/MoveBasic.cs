@@ -56,25 +56,26 @@ public class MoveBasic : PlayerMoveOption
         Fall();
     }
 
+    
     private void OnDrawGizmos()
     {
-        Vector3 startPos, normal, force, result;
-        startPos = new Vector3(1, 10, 1);
+        Vector3 point = Vector3.up;
+        Vector3 dir = (point - transform.position).normalized;
 
-        force = new Vector3(0.1f,1f, 0);
-        normal = new Vector3(0, 1f, 0).normalized;
+        Vector3 right = Vector3.Cross(Vector3.up, dir).normalized;
+        Vector3 up = Vector3.Cross(dir, right);
+        right = Vector3.right;
+        up = Vector3.up;
 
-        result = Vector3.Project(force, normal);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(startPos - Vector3.right * 0.1f, force);
+        Vector3 result = Vector3.zero;
+
+        result += up * Mathf.Sin(Time.time*5)*2;
+        result += right * Mathf.Cos(Time.time * 5) * 2;
+        result = Quaternion.LookRotation(dir, Vector3.up) * result;
 
         Gizmos.color = Color.white;
-        Gizmos.DrawRay(startPos, normal);
-
-        Gizmos.color = Color.black;
-        Gizmos.DrawRay(startPos, result);
-
+        Gizmos.DrawSphere(point, 0.2f);
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(startPos + Vector3.right * 0.1f, force - result);
+        Gizmos.DrawSphere(result + point, 0.2f);
     }
 }

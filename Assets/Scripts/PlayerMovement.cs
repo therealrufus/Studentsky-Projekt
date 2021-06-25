@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     [Range(0, 1)]
-    [Tooltip("(not working) the minimal angle to be grounded")]public float groundedAngle;
+    [Tooltip("(not working) the minimal angle to be grounded")] public float groundedAngle;
     public float gravity = 10f;
 
     public PlayerMoveOption[] moves;
     int currentMove;
+    bool hasDuration;
 
     [HideInInspector]
     public CharacterController controller;
@@ -21,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public bool grounded;
     [HideInInspector]
     public Vector3 arrowInput;
+    [HideInInspector]
+    public Vector3 rawArrowInput;
 
     public Text speedText;
 
@@ -36,9 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        arrowInput = GetMovementInput();
+        GetMovementInput();
 
-        CheckMoves();
+        if (!hasDuration)
+            CheckMoves();
+        else hasDuration = moves[currentMove].ShouldContinue();
 
         moves[currentMove].Move();
 
@@ -48,10 +53,10 @@ public class PlayerMovement : MonoBehaviour
         speedText.color = grounded ? Color.black : Color.grey;
     }
 
-    Vector3 GetMovementInput()
+    void GetMovementInput()
     {
-        Vector3 rawInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-        return (transform.right * rawInput.x + transform.forward * rawInput.z).normalized;
+        rawArrowInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        arrowInput = (transform.right * rawArrowInput.x + transform.forward * rawArrowInput.z).normalized;
     }
 
     void ApplyMovement()
@@ -81,5 +86,15 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
+        hasDuration = moves[currentMove].hasDuration;
     }
+
+    /*public static void AirMovement(Vector3 speed, Vector3 input, float acceleration)
+    {
+        input *= Time.deltaTime * acceleration;
+        Vector3 result = horizontalSpeed + input;
+        result = Vector3.ClampMagnitude(result, Mathf.Max(airSpeed, horizontalSpeed.magnitude));
+        master.SPEED = result + Vector3.up * master.SPEED.y;
+    }*/
 }

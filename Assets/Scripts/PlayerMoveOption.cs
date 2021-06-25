@@ -8,6 +8,8 @@ public class PlayerMoveOption : MonoBehaviour
     public PlayerMovement master;
     [Tooltip("the priority of this move in comparison of others")]
     public int priority;
+    [Tooltip("is this move supposed to make something across a time?")]
+    public bool hasDuration = false;
 
     protected Vector3 lastNormal = Vector3.zero;
 
@@ -41,5 +43,10 @@ public class PlayerMoveOption : MonoBehaviour
     public virtual bool CheckState()
     {
         return false;
+    }
+
+    public virtual bool ShouldContinue()
+    {
+        return true;
     }
 }
