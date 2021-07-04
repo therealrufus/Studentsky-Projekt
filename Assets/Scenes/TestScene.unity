@@ -1669,6 +1669,101 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776114375}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &875667193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875667194}
+  - component: {fileID: 875667197}
+  - component: {fileID: 875667196}
+  - component: {fileID: 875667195}
+  m_Layer: 0
+  m_Name: s (19)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &875667194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875667193}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -46.3522, y: 7.4532, z: -38.0292}
+  m_LocalScale: {x: 23.463306, y: 15.037793, z: 48.675453}
+  m_Children: []
+  m_Father: {fileID: 1633107501}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &875667195
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875667193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &875667196
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875667193}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 663834164c6a04740aaa1b778249ce7e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &875667197
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875667193}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &953001707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2383,7 @@ Transform:
   - {fileID: 1337036263}
   - {fileID: 2135295018}
   - {fileID: 763738104}
+  - {fileID: 875667194}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2765,8 +2861,8 @@ MonoBehaviour:
   walkAcceleration: 180
   walkDeceleration: 80
   walkSpeed: 15
-  airAcceleration: 40
-  airSpeed: 4
+  airAcceleration: 60
+  airSpeed: 10
   jumpForce: 20
 --- !u!114 &2045804405
 MonoBehaviour:
@@ -2813,7 +2909,7 @@ MonoBehaviour:
   airAccelerationMultiplier: 0.5
   deceleration: 10
   airGravityMultiplier: 1.5
-  groundGravityMultiplier: 6
+  groundGravityMultiplier: 4
   groundClimbGravityMultiplier: 1.5
   jumpDirectionalForce: 0.1
 --- !u!114 &2045804407
@@ -2857,14 +2953,15 @@ MonoBehaviour:
   priority: 1000
   hasDuration: 1
   head: {fileID: 112323454}
-  stopLoopAngle: 0
-  maxDistance: 500
-  stopDistance: 3
-  speed: 20
+  stopLookAngle: 0.24
+  maxDistance: 1000
+  stopDistance: 5
+  acceleration: 50
+  speedCap: 30
   initialBoost: 10
-  maxAngle: 100
-  angularAcceleration: {x: 500, y: 500}
-  angularDeceleration: 100
+  maxAngle: 10
+  angularAcceleration: {x: 60, y: 60}
+  angularDeceleration: 50
 --- !u!1 &2077056216
 GameObject:
   m_ObjectHideFlags: 0

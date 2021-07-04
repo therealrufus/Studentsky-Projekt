@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -89,12 +87,4 @@ public class PlayerMovement : MonoBehaviour
 
         hasDuration = moves[currentMove].hasDuration;
     }
-
-    /*public static void AirMovement(Vector3 speed, Vector3 input, float acceleration)
-    {
-        input *= Time.deltaTime * acceleration;
-        Vector3 result = horizontalSpeed + input;
-        result = Vector3.ClampMagnitude(result, Mathf.Max(airSpeed, horizontalSpeed.magnitude));
-        master.SPEED = result + Vector3.up * master.SPEED.y;
-    }*/
 }

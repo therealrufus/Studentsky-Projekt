@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
 public class MoveGrapple : PlayerMoveOption
 {
     public Transform head;
     [Range(-1f, 1f)]
-    public float stopLoopAngle;
+    public float stopLookAngle;
     public float maxDistance;
     public float stopDistance;
-    public float speed;
+    public float acceleration;
+    public float speedCap;
     public float initialBoost;
 
     public float maxAngle;
@@ -47,11 +45,10 @@ public class MoveGrapple : PlayerMoveOption
     {
         if (Vector3.Distance(transform.position, impactPoint) <= stopDistance)
         {
-            Debug.Log(Vector3.Distance(transform.position, impactPoint));
             return false;
         }
 
-        if (Vector3.Dot(head.forward, direction) < stopLoopAngle)
+        if (Vector3.Dot(head.forward, direction) < stopLookAngle)
             return false;
 
         if (Input.GetKey(KeyCode.LeftControl))
@@ -64,10 +61,14 @@ public class MoveGrapple : PlayerMoveOption
     {
         base.Move();
         anglePos = Rotate();
-        Vector3 force = (anglePos - transform.position).normalized;
-        force = force * speed * Time.deltaTime;
 
-        master.SPEED += force;
+        Vector3 force = (anglePos - transform.position).normalized;
+        force = force * acceleration * Time.deltaTime;
+
+        Vector3 speed = master.SPEED;
+        speed += force;
+        speed = Vector3.ClampMagnitude(speed, Mathf.Max(speedCap, master.SPEED.magnitude));
+        master.SPEED = speed;
 
         Debug.DrawLine(transform.position, impactPoint, Color.black);
     }
