@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
@@ -23,6 +21,5 @@ public class PlayerCamera : MonoBehaviour
 
         cam.transform.localRotation = Quaternion.Euler(yRotation, 0, 0);
         transform.Rotate(Vector3.up * mouseInput.x);
-
     }
 }

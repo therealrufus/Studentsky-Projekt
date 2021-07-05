@@ -1,28 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveWallride : PlayerMoveOption
 {
-    [Space]
+    [Space(20)]
     public MoveBasic basicMovement;
 
-    public float gravity;
-    public float Deceleration;
-    public float stickToSurfaceForce;
+    [Tooltip("the rate at witch the player should be decending on a wall")] public float gravity = 2f;
+    [Tooltip("how fast should the speed be dropping")] public float deceleration = 10f;
+    [Tooltip("how much should the player stick to a wall")] public float stickToSurfaceForce = 10f;
     [Range(0, 1)]
-    public float maxAngle;
+    [Tooltip("where should the player be looking to stick to a wall")] public float maxAngle = 0.5f;
     [Range(0, 1)]
-    public float maxAngleUp;
-    public float maxDistance;
+    [Tooltip("how much can the wall be bended")] public float maxAngleUp = 0.2f;
+    [Tooltip("the max distance to stick to a wall")] public float maxDistance = 1f;
     [Header("Jumping")]
-    public float jumpForceUp;
-    public float jumpForceSide;
+    public float jumpForceUp = 20;
+    public float jumpForceSide = 15;
+    public float jumpForceForward = 2;
 
     Vector3 normal;
 
-
-    public override bool CheckState()
+    public override bool ShouldStart()
     {
         if (master.grounded) return false;
 
@@ -69,7 +67,7 @@ public class MoveWallride : PlayerMoveOption
     {
         if (master.SPEED.y < -1 * gravity)
         {
-            master.SPEED -= Vector3.up * -1 * Deceleration * Time.deltaTime;
+            master.SPEED -= Vector3.up * -1 * deceleration * Time.deltaTime;
         }
         else base.Fall();
     }
@@ -78,5 +76,6 @@ public class MoveWallride : PlayerMoveOption
     {
         master.SPEED.y = jumpForceUp;
         master.SPEED += normal * jumpForceSide;
+        master.SPEED += horizontalSpeed.normalized * jumpForceForward;
     }
 }

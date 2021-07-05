@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveBasic : PlayerMoveOption
 {
-    [Space]
+    [Space(20)]
     public float walkAcceleration = 100;
     public float walkDeceleration = 30;
     public float walkSpeed = 10;
-    public float airAcceleration = 20;
-    public float airSpeed = 2;
+    [Tooltip("the acceleration when pressing wasd in air")]public float airAcceleration = 20;
+    [Tooltip("the max air speed achievable by wasd input only")]public float airSpeed = 2;
     public float jumpForce = 10;
 
-    public override bool CheckState()
+    public override bool ShouldStart()
     {
         return true;
     }
@@ -27,18 +25,18 @@ public class MoveBasic : PlayerMoveOption
 
     void GroundMovement()
     {
+        Fall();
+
         Vector3 input = master.arrowInput;
         input = Vector3.ProjectOnPlane(input, lastNormal).normalized;
         input *= Time.deltaTime * walkAcceleration;
         input = Vector3.ClampMagnitude(input, walkSpeed - horizontalSpeed.magnitude);
 
-        Fall();
-
         if ((horizontalSpeed + input).sqrMagnitude < walkSpeed * walkSpeed)
         {
             master.SPEED += input;
         }
-
+        
 
         master.SPEED -= Vector3.ClampMagnitude(horizontalSpeed.normalized * Time.deltaTime * walkDeceleration, horizontalSpeed.magnitude);
 
@@ -55,21 +53,4 @@ public class MoveBasic : PlayerMoveOption
 
         Fall();
     }
-
-    /*private void OnDrawGizmos()
-    {
-        Vector3 startPos, normal, force, result;
-        startPos = new Vector3(0, 10, 0);
-        force = new Vector3(0, 0, 3);
-        normal = new Vector3(1, 1, 0);
-
-        result = Vector3.ProjectOnPlane(force, normal).normalized;
-        result *= force.magnitude;
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(startPos, force);
-        Gizmos.color = Color.white;
-        Gizmos.DrawRay(startPos, normal);
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(startPos, result);
-    }*/
 }
