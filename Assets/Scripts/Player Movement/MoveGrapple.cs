@@ -2,43 +2,60 @@ using UnityEngine;
 
 public class MoveGrapple : PlayerMoveOption
 {
+    [Space(20)]
+    [Tooltip("from where should the grapple be raycasted")]
     public Transform head;
+    [Tooltip("at what looking angle should the player detach (-1: never, 1: always)")]
     [Range(-1f, 1f)]
-    public float stopLookAngle;
-    public float maxDistance;
-    public float stopDistance;
-    public float acceleration;
-    public float speedCap;
-    public float initialBoost;
-
-    public float maxAngle;
-    public Vector2 angularAcceleration;
-    public float angularDeceleration;
+    public float stopLookAngle = 0.25f;
+    [Tooltip("the max reach of the grappling hook")]
+    public float maxDistance = 999f;
+    [Tooltip("how close of the grapple point should the player detach")]
+    public float stopDistance = 5f;
+    [Tooltip("the grappling acceleration")]
+    public float acceleration = 50f;
+    [Tooltip("the max grappling speed achieved by accelerating")]
+    public float speedCap = 30f;
+    [Tooltip("the initial boost toward the grapple point")]
+    public float initialBoost = 10f;
+    [Tooltip("the force to apply when jumping of a grapple move")]
+    public float jumpForce = 20f;
+    [Space]
+    [Tooltip("how far can the player deviate from the grapple point")]
+    public float maxAngle =  10f;
+    [Tooltip("how fast can the player deviate from the grapple point (up and sides)")]
+    public Vector2 angularAcceleration = new Vector2(60f, 60f);
+    [Tooltip("same but deceleration")]
+    public float angularDeceleration = 50f;
 
     Vector3 impactPoint;
     Vector3 grappleInput;
     Vector3 anglePos;
+    RaycastHit ray;
 
     Vector3 direction
     {
         get { return (impactPoint - transform.position).normalized; }
     }
 
-    public override bool CheckState()
+    public override bool ShouldStart()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            RaycastHit ray;
             if (Physics.Raycast(head.position, head.forward, out ray, maxDistance))
             {
-                impactPoint = ray.point;
-                Impact(ray.normal * -1);
-                grappleInput = Vector3.zero;
                 return true;
             }
         }
 
         return false;
+    }
+
+    public override void OnStart()
+    {
+        impactPoint = ray.point;
+        Impact(ray.normal * -1);
+        grappleInput = Vector3.zero;
     }
 
     public override bool ShouldContinue()
@@ -53,6 +70,13 @@ public class MoveGrapple : PlayerMoveOption
 
         if (Input.GetKey(KeyCode.LeftControl))
             return false;
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            master.SPEED += Vector3.up * jumpForce;
+            return false;
+        }
+            
 
         return true;
     }

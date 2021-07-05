@@ -38,7 +38,7 @@ public class PlayerMoveOption : MonoBehaviour
         }
     }
 
-    public virtual bool CheckState()
+    public virtual bool ShouldStart()
     {
         return false;
     }
@@ -46,5 +46,10 @@ public class PlayerMoveOption : MonoBehaviour
     public virtual bool ShouldContinue()
     {
         return true;
+    }
+
+    public virtual void OnStart()
+    {
+
     }
 }

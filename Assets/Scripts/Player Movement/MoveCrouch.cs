@@ -2,27 +2,27 @@ using UnityEngine;
 
 public class MoveCrouch : PlayerMoveOption
 {
-    [Space]
+    [Space(20)]
     public MoveBasic basicMovement;
 
     [Range(0, 1)]
     [Tooltip("How much is the player boosted on inpact")]
-    public float boostForce;
+    public float boostForce = 0.3f;
     [Tooltip("should the player strafe slower when crouching in air?")] 
     public float airAccelerationMultiplier = 0.5f;
     [Tooltip("ground friction")] 
-    public float deceleration;
+    public float deceleration = 10f;
     [Tooltip("should the player be heavier when crouching?")] 
-    public float airGravityMultiplier;
+    public float airGravityMultiplier = 1.5f;
     [Tooltip("bigger value, bigger acceleration on slopes")] 
-    public float groundGravityMultiplier;
+    public float groundGravityMultiplier = 4f;
     [Tooltip("bigger value, bigger acceleration on slopes")] 
-    public float groundClimbGravityMultiplier;
+    public float groundClimbGravityMultiplier = 1.5f;
 
     [Range(0, 1)]
-    [Tooltip("how much speed should be preserved when jumping in ")] public float jumpDirectionalForce;
+    [Tooltip("how much speed at least should be preserved when jumping")] public float jumpDirectionalForce = 0.1f;
 
-    public override bool CheckState()
+    public override bool ShouldStart()
     {
         return Input.GetKey(KeyCode.LeftControl);
     }

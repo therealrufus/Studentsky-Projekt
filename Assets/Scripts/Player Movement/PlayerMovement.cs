@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (moves[i].priority > priority)
             {
-                if (moves[i].CheckState())
+                if (moves[i].ShouldStart())
                 {
                     currentMove = i;
                     priority = moves[i].priority;
@@ -86,5 +86,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         hasDuration = moves[currentMove].hasDuration;
+        if (hasDuration) moves[currentMove].OnStart();
     }
 }
