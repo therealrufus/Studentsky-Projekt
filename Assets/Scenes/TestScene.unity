@@ -2359,7 +2359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc38182228b0ad4d9d18898771734c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 200
+  mouseSensitivity: 550
   cam: {fileID: 112323453}
 --- !u!114 &2045804404
 MonoBehaviour:
@@ -2422,7 +2422,7 @@ MonoBehaviour:
   airAccelerationMultiplier: 0.5
   Deceleration: 5
   airGravityMultiplier: 1.5
-  groundGravityMultiplier: 3
+  groundGravityMultiplier: 2
   jumpDirectionalForce: 0.3
 --- !u!114 &2045804407
 MonoBehaviour:
