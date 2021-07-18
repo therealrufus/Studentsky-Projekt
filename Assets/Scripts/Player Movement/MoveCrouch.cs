@@ -6,12 +6,13 @@ public class MoveCrouch : PlayerMoveOption
     public MoveBasic basicMovement;
 
     [Range(0, 1)]
-    [Tooltip("How much is the player boosted on inpact")]
+    [Tooltip("How much is the player boosted on impact")]
     public float boostForce = 0.3f;
     [Tooltip("should the player strafe slower when crouching in air?")] 
     public float airAccelerationMultiplier = 0.5f;
     [Tooltip("ground friction")] 
     public float deceleration = 10f;
+    [Space]
     [Tooltip("should the player be heavier when crouching?")] 
     public float airGravityMultiplier = 1.5f;
     [Tooltip("bigger value, bigger acceleration on slopes")] 

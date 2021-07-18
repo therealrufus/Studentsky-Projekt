@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMoveOption : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class PlayerMoveOption : MonoBehaviour
     public int priority;
     [Tooltip("is this move supposed to make something across a time?")]
     public bool hasDuration = false;
+
+    [HideInInspector]
+    public UnityEvent OnMove;
+    [HideInInspector]
+    public UnityEvent OnBegin;
+    [HideInInspector]
+    public UnityEvent OnEnd;
 
     protected Vector3 lastNormal = Vector3.zero;
 

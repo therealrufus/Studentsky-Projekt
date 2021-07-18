@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("(not working) the minimal angle to be grounded")] public float groundedAngle;
     public float gravity = 10f;
 
+    [Space]
     public PlayerMoveOption[] moves;
     int currentMove;
     bool hasDuration;
@@ -23,7 +25,9 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Vector3 rawArrowInput;
 
-    public Text speedText;
+
+    [Space]
+    [Tooltip("DEBUG ONLY!!!")] public Text speedText;
 
     private void Start()
     {
@@ -44,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         else hasDuration = moves[currentMove].ShouldContinue();
 
         moves[currentMove].Move();
+        moves[currentMove].OnMove.Invoke();
 
         ApplyMovement();
 
@@ -72,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckMoves()
     {
+        int lastMove = currentMove;
+
         int priority = -99999;
         for (int i = 0; i < moves.Length; i++)
         {
@@ -83,6 +90,13 @@ public class PlayerMovement : MonoBehaviour
                     priority = moves[i].priority;
                 }
             }
+        }
+
+        if (lastMove != currentMove)
+        {
+            moves[currentMove].OnBegin.Invoke();
+            moves[lastMove].OnEnd.Invoke();
+            //Debug.Log(moves[lastMove]);
         }
 
         hasDuration = moves[currentMove].hasDuration;

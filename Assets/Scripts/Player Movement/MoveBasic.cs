@@ -6,8 +6,10 @@ public class MoveBasic : PlayerMoveOption
     public float walkAcceleration = 100;
     public float walkDeceleration = 30;
     public float walkSpeed = 10;
+    [Space]
     [Tooltip("the acceleration when pressing wasd in air")]public float airAcceleration = 20;
     [Tooltip("the max air speed achievable by wasd input only")]public float airSpeed = 2;
+    [Space]
     public float jumpForce = 10;
 
     public override bool ShouldStart()

@@ -22,11 +22,7 @@ public class MoveGrapple : PlayerMoveOption
     public float jumpForce = 20f;
     [Space]
     [Tooltip("how far can the player deviate from the grapple point")]
-    public float maxAngle =  10f;
-    [Tooltip("how fast can the player deviate from the grapple point (up and sides)")]
-    public Vector2 angularAcceleration = new Vector2(60f, 60f);
-    [Tooltip("same but deceleration")]
-    public float angularDeceleration = 50f;
+    public float maxAngle = 10f;
 
     Vector3 impactPoint;
     Vector3 grappleInput;
@@ -73,10 +69,12 @@ public class MoveGrapple : PlayerMoveOption
 
         if (Input.GetKey(KeyCode.Space))
         {
-            master.SPEED += Vector3.up * jumpForce;
+            if (master.SPEED.y > 0)
+                master.SPEED += Vector3.up * jumpForce;
+            else master.SPEED.y = jumpForce;
             return false;
         }
-            
+
 
         return true;
     }
@@ -101,17 +99,26 @@ public class MoveGrapple : PlayerMoveOption
     {
         Vector3 input = master.rawArrowInput;
 
+        CameraInput();
+
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
 
-        grappleInput += Vector3.right * input.x * (angularAcceleration.x + angularDeceleration) * Time.deltaTime;
-        grappleInput += Vector3.up * input.z * (angularAcceleration.y + angularDeceleration) * Time.deltaTime;
+        grappleInput = Vector3.zero;
 
-        grappleInput = Vector3.MoveTowards(grappleInput, Vector3.zero, angularDeceleration * Time.deltaTime);
-
-        if (grappleInput.magnitude > maxAngle)
-            grappleInput = grappleInput.normalized * maxAngle;
+        grappleInput += Vector3.right * input.x;
+        grappleInput += Vector3.up * input.z;
+        grappleInput = grappleInput.normalized * maxAngle;
 
         return (rotation * grappleInput) + impactPoint;
+    }
+
+    Vector2 CameraInput()
+    {
+        Vector3 cameraDirection = head.forward;
+        //Vector3 direction = (impactPoint - transform.position).normalized;
+        Debug.Log(Vector3.Angle(cameraDirection, direction));
+        
+        return Vector3.zero;
     }
 
     void Impact(Vector3 normal)

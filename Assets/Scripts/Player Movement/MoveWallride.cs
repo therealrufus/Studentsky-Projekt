@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MoveWallride : PlayerMoveOption
 {
@@ -18,7 +19,8 @@ public class MoveWallride : PlayerMoveOption
     public float jumpForceSide = 15;
     public float jumpForceForward = 2;
 
-    Vector3 normal;
+    [HideInInspector]
+    public Vector3 normal;
 
     public override bool ShouldStart()
     {
