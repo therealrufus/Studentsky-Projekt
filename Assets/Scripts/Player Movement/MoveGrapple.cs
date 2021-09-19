@@ -150,7 +150,7 @@ public class MoveGrapple : PlayerMoveOption
         Gizmos.DrawRay(pos, result);*/
 
         Gizmos.color = Color.white;
-        Gizmos.DrawSphere(impactPoint, 0.2f);
+        Gizmos.DrawSphere(impactPoint, 0.4f);
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(anglePos, 0.2f);
     }

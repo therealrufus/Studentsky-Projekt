@@ -7,8 +7,8 @@ public class MoveBasic : PlayerMoveOption
     public float walkDeceleration = 30;
     public float walkSpeed = 10;
     [Space]
-    [Tooltip("the acceleration when pressing wasd in air")]public float airAcceleration = 20;
-    [Tooltip("the max air speed achievable by wasd input only")]public float airSpeed = 2;
+    [Tooltip("the acceleration when pressing wasd in air")] public float airAcceleration = 20;
+    [Tooltip("the max air speed achievable by wasd input only")] public float airSpeed = 2;
     [Space]
     public float jumpForce = 10;
 
@@ -38,10 +38,11 @@ public class MoveBasic : PlayerMoveOption
         {
             master.SPEED += input;
         }
-        
+
 
         master.SPEED -= Vector3.ClampMagnitude(horizontalSpeed.normalized * Time.deltaTime * walkDeceleration, horizontalSpeed.magnitude);
 
+        //jumping
         if (Input.GetKey(KeyCode.Space)) { master.SPEED.y = jumpForce; master.grounded = false; }
     }
 

@@ -12,7 +12,7 @@ public class AnimWallrun : MonoBehaviour
     public float angle;
     public float time;
 
-    public float finalAngle;
+    float finalAngle;
 
     private void Start()
     {
@@ -29,15 +29,15 @@ public class AnimWallrun : MonoBehaviour
     void RotateCam()
     {
         finalAngle = angle * AngleDir(wallride.transform.forward, wallride.normal, Vector3.up) * -1;
-        target.Rotate(new Vector3(0, 0, finalAngle));
-        //target.DORotate(new Vector3(0, 0, angle), time, RotateMode.LocalAxisAdd);
+
+        target.DOLocalRotate(new Vector3(0, 0, finalAngle), time);
     }
 
     void ResetCam()
     {
-        target.Rotate(new Vector3(0, 0, -finalAngle));
-        //target.DORotate(new Vector3(0, 0, -angle), time, RotateMode.LocalAxisAdd);
+        target.DOLocalRotate(new Vector3(0, 0, 0), time);
     }
+
 
     Transform SpawnHolder(Transform cam)
     {

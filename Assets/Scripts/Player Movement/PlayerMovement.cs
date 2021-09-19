@@ -20,14 +20,18 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 SPEED;
     [HideInInspector]
     public bool grounded;
+
+    [HideInInspector]
+    public int groundedForFrames;
+
     [HideInInspector]
     public Vector3 arrowInput;
     [HideInInspector]
     public Vector3 rawArrowInput;
 
-
     [Space]
     [Tooltip("DEBUG ONLY!!!")] public Text speedText;
+    [Tooltip("DEBUG ONLY!!!")] public Text typeText;
 
     private void Start()
     {
@@ -43,17 +47,23 @@ public class PlayerMovement : MonoBehaviour
     {
         GetMovementInput();
 
+        //choose a move
         if (!hasDuration)
             CheckMoves();
         else hasDuration = moves[currentMove].ShouldContinue();
 
+        //add velocity based on moves
         moves[currentMove].Move();
         moves[currentMove].OnMove.Invoke();
 
         ApplyMovement();
 
+        //debug
         speedText.text = Mathf.Round(SPEED.magnitude).ToString();
         speedText.color = grounded ? Color.black : Color.grey;
+        typeText.text = moves[currentMove].ToString();
+
+        groundedForFrames++;
     }
 
     void GetMovementInput()
@@ -67,16 +77,18 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(transform.position, SPEED, Color.red);
 
         CollisionFlags flags = controller.Move(SPEED * Time.deltaTime);
-        if (flags == CollisionFlags.None) grounded = false;
+        if (flags == CollisionFlags.None) /*grounded = false;*/ SetGrounded(false);
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        grounded = 1 - Vector3.Dot(hit.normal, Vector3.up) <= groundedAngle;
+        //grounded = 1 - Vector3.Dot(hit.normal, Vector3.up) <= groundedAngle;
+        SetGrounded(1 - Vector3.Dot(hit.normal, Vector3.up) <= groundedAngle);
         moves[currentMove].Collide(hit);
     }
 
     void CheckMoves()
     {
+        //choose a move
         int lastMove = currentMove;
 
         int priority = -99999;
@@ -92,14 +104,20 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        //execute the move
         if (lastMove != currentMove)
         {
             moves[currentMove].OnBegin.Invoke();
             moves[lastMove].OnEnd.Invoke();
-            //Debug.Log(moves[lastMove]);
         }
 
         hasDuration = moves[currentMove].hasDuration;
         if (hasDuration) moves[currentMove].OnStart();
+    }
+
+    void SetGrounded(bool value)
+    {
+        if (value != grounded) groundedForFrames = 0;
+        grounded = value;
     }
 }

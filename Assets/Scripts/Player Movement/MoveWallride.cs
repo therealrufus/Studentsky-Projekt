@@ -6,6 +6,8 @@ public class MoveWallride : PlayerMoveOption
     [Space(20)]
     public MoveBasic basicMovement;
 
+    
+
     [Tooltip("the rate at witch the player should be decending on a wall")] public float gravity = 2f;
     [Tooltip("how fast should the speed be dropping")] public float deceleration = 10f;
     [Tooltip("how much should the player stick to a wall")] public float stickToSurfaceForce = 10f;
@@ -19,12 +21,14 @@ public class MoveWallride : PlayerMoveOption
     public float jumpForceSide = 15;
     public float jumpForceForward = 2;
 
+    [Space]
+    [Tooltip("increase this to reduce flickering")] public float minimumTreshold;
     [HideInInspector]
     public Vector3 normal;
 
     public override bool ShouldStart()
     {
-        if (master.grounded) return false;
+        if (master.grounded || (master.groundedForFrames <= minimumTreshold)) return false;
 
         RaycastHit rayRight;
         RaycastHit rayLeft;

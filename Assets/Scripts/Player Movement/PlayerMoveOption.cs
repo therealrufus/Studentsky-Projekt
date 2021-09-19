@@ -60,4 +60,9 @@ public class PlayerMoveOption : MonoBehaviour
     {
 
     }
+
+    public override string ToString()
+    {
+        return GetType().Name;
+    }
 }
