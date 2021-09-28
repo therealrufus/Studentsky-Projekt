@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MoveBasic : PlayerMoveOption
 {
@@ -43,7 +44,10 @@ public class MoveBasic : PlayerMoveOption
         master.SPEED -= Vector3.ClampMagnitude(horizontalSpeed.normalized * Time.deltaTime * walkDeceleration, horizontalSpeed.magnitude);
 
         //jumping
-        if (Input.GetKey(KeyCode.Space)) { master.SPEED.y = jumpForce; master.grounded = false; }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Jump();
+        }
     }
 
     void AirMovement()
@@ -55,5 +59,12 @@ public class MoveBasic : PlayerMoveOption
         master.SPEED = result + Vector3.up * master.SPEED.y;
 
         Fall();
+    }
+
+    void Jump()
+    {
+        master.SPEED.y = jumpForce;
+        master.grounded = false;
+        OnJump.Invoke();
     }
 }

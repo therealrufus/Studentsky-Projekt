@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class AnimWallrun : MonoBehaviour
+public class AnimWallrun : PlayerEffect
 {
+    [Space]
     public MoveWallride wallride;
     public Transform cam;
     Transform target;
@@ -41,7 +42,7 @@ public class AnimWallrun : MonoBehaviour
 
     Transform SpawnHolder(Transform cam)
     {
-        Transform target = new GameObject("holder").transform;
+        Transform target = new GameObject("holder for " + GetType().Name).transform;
         target.parent = cam.parent;
         target.localPosition = cam.localPosition;
         target.localRotation = cam.localRotation;

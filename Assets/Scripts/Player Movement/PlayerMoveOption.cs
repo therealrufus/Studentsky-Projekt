@@ -10,12 +10,17 @@ public class PlayerMoveOption : MonoBehaviour
     [Tooltip("is this move supposed to make something across a time?")]
     public bool hasDuration = false;
 
+    //used for effects/animations for the player
     [HideInInspector]
     public UnityEvent OnMove;
     [HideInInspector]
     public UnityEvent OnBegin;
     [HideInInspector]
     public UnityEvent OnEnd;
+    [HideInInspector]
+    public UnityEvent OnJump;
+    [HideInInspector]
+    public UnityEvent OnLand;
 
     protected Vector3 lastNormal = Vector3.zero;
 
@@ -39,11 +44,14 @@ public class PlayerMoveOption : MonoBehaviour
     {
         lastNormal = hit.normal;
 
+        Vector3 collisionForce = Vector3.zero;
         if (Vector3.Dot(lastNormal * -1, master.SPEED) > 0)
         {
-            Vector3 collisionForce = Vector3.Project(master.SPEED, lastNormal);
+            collisionForce = Vector3.Project(master.SPEED, lastNormal);
             master.SPEED -= collisionForce;
         }
+
+        if (master.grounded && master.groundedForFrames <= 1 && collisionForce.magnitude > 20f) OnLand.Invoke();
     }
 
     public virtual bool ShouldStart()

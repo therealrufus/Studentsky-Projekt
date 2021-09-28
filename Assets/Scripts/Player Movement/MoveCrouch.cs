@@ -73,6 +73,8 @@ public class MoveCrouch : PlayerMoveOption
 
         master.SPEED = speed + Vector3.up * basicMovement.jumpForce;
         master.grounded = false;
+
+        OnJump.Invoke();
     }
 
     public override void Collide(ControllerColliderHit hit)
