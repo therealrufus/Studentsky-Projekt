@@ -22,11 +22,6 @@ public class AnimWallrun : PlayerEffect
         target = SpawnHolder(cam);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G)) RotateCam();
-    }
-
     void RotateCam()
     {
         finalAngle = angle * AngleDir(wallride.transform.forward, wallride.normal, Vector3.up) * -1;

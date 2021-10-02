@@ -7,7 +7,7 @@ public class PlayerEffectsMaster : MonoBehaviour
     [Header("MASTER")]
 
     public Transform player;
-    public Camera cam;
+    public Transform cam;
     public Transform handLeft;
     public Transform handRight;
 }

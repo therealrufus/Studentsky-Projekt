@@ -51,7 +51,7 @@ public class PlayerMoveOption : MonoBehaviour
             master.SPEED -= collisionForce;
         }
 
-        if (master.grounded && master.groundedForFrames <= 1 && collisionForce.magnitude > 20f) OnLand.Invoke();
+        if (master.grounded && master.groundedForFrames <= 1 && collisionForce.magnitude > 25f) OnLand.Invoke();
     }
 
     public virtual bool ShouldStart()

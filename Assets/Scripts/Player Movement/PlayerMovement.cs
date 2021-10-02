@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         CollisionFlags flags = controller.Move(SPEED * Time.deltaTime);
         if (flags == CollisionFlags.None) /*grounded = false;*/ SetGrounded(false);
     }
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //grounded = 1 - Vector3.Dot(hit.normal, Vector3.up) <= groundedAngle;
