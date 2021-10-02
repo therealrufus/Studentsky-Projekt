@@ -24,7 +24,8 @@ public class MoveGrapple : PlayerMoveOption
     [Tooltip("how far can the player deviate from the grapple point")]
     public float maxAngle = 10f;
 
-    Vector3 impactPoint;
+
+    [HideInInspector] public Vector3 impactPoint;
     Vector3 grappleInput;
     Vector3 anglePos;
     RaycastHit ray;
