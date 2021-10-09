@@ -34,18 +34,6 @@ public class AnimWallrun : PlayerEffect
         target.DOLocalRotate(new Vector3(0, 0, 0), time);
     }
 
-
-    Transform SpawnHolder(Transform cam)
-    {
-        Transform target = new GameObject("holder for " + GetType().Name).transform;
-        target.parent = cam.parent;
-        target.localPosition = cam.localPosition;
-        target.localRotation = cam.localRotation;
-        cam.parent = target;
-        cam.localPosition = Vector3.zero;
-        return target;
-    }
-
     float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 up)
     {
         Vector3 perp = Vector3.Cross(fwd, targetDir);

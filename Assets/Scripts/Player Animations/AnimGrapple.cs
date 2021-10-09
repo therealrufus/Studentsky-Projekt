@@ -24,19 +24,24 @@ public class AnimGrapple : PlayerEffect
     {
         StopCoroutine(grapplingCoroutine);
         line.enabled = false;
-        master.handLeft.rotation = Quaternion.identity;
     }
 
     IEnumerator Grappling()
     {
+        //proc jsem nepouzil onMove??
+
         line.enabled = true;
         while (true)
         {
+            Quaternion lastRotation = master.handLeft.rotation;
             master.handLeft.LookAt(grapple.impactPoint);
+            Quaternion newRotation = master.handLeft.rotation;
+
+            master.RotateWithEase(master.handLeft, newRotation, lastRotation);
+
             line.SetPosition(0, master.handLeft.position);
             line.SetPosition(1, grapple.impactPoint);
             yield return null;
-            //yield return null;
         }
     }
 }

@@ -7,14 +7,14 @@ public class PlayerEffect : MonoBehaviour
 {
     [SerializeField] protected PlayerEffectsMaster master;
 
-    protected Transform SpawnHolder(Transform cam)
+    protected Transform SpawnHolder(Transform obj)
     {
         Transform target = new GameObject("holder for " + GetType().Name).transform;
-        target.parent = cam.parent;
-        target.localPosition = cam.localPosition;
-        target.localRotation = cam.localRotation;
-        cam.parent = target;
-        cam.localPosition = Vector3.zero;
+        target.parent = obj.parent;
+        target.localPosition = obj.localPosition;
+        target.localRotation = obj.localRotation;
+        obj.parent = target;
+        obj.localPosition = Vector3.zero;
         return target;
     }
 }

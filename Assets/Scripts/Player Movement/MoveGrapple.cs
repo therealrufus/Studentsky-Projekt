@@ -117,7 +117,6 @@ public class MoveGrapple : PlayerMoveOption
     {
         Vector3 cameraDirection = head.forward;
         //Vector3 direction = (impactPoint - transform.position).normalized;
-        Debug.Log(Vector3.Angle(cameraDirection, direction));
         
         return Vector3.zero;
     }
