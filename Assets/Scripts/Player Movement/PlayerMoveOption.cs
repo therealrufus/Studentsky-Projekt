@@ -30,6 +30,11 @@ public class PlayerMoveOption : MonoBehaviour
         //get { return new Vector3(master.SPEED.x, 0, master.SPEED.z); }
     }
 
+    public virtual void Inicialize()
+    { 
+    
+    }
+
     public virtual void Move()
     {
         if (!master.grounded) lastNormal = Vector3.up;
@@ -51,6 +56,7 @@ public class PlayerMoveOption : MonoBehaviour
             master.SPEED -= collisionForce;
         }
 
+        //fuj
         if (master.grounded && master.groundedForFrames <= 1 && collisionForce.magnitude > 25f) OnLand.Invoke();
     }
 
@@ -64,7 +70,7 @@ public class PlayerMoveOption : MonoBehaviour
         return true;
     }
 
-    public virtual void OnStart()
+    public virtual void Begin()
     {
 
     }

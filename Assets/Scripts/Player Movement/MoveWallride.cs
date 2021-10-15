@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class MoveWallride : PlayerMoveOption
 {
     [Space(20)]
-    public MoveBasic basicMovement;
+    [SerializeField] MoveBasic basicMovement;
 
     
 
@@ -17,9 +17,9 @@ public class MoveWallride : PlayerMoveOption
     [Tooltip("how much can the wall be bended")] public float maxAngleUp = 0.2f;
     [Tooltip("the max distance to stick to a wall")] public float maxDistance = 1f;
     [Header("Jumping")]
-    public float jumpForceUp = 20;
-    public float jumpForceSide = 15;
-    public float jumpForceForward = 2;
+    [SerializeField] float jumpForceUp = 20;
+    [SerializeField] float jumpForceSide = 15;
+    [SerializeField] float jumpForceForward = 2;
 
     [Space]
     [Tooltip("increase this to reduce flickering")] public float minimumTreshold;

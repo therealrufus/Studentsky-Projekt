@@ -4,9 +4,9 @@ using UnityEngine.Events;
 public class MoveBasic : PlayerMoveOption
 {
     [Space(20)]
-    public float walkAcceleration = 100;
-    public float walkDeceleration = 30;
-    public float walkSpeed = 10;
+    [SerializeField] float walkAcceleration = 100;
+    [SerializeField] float walkDeceleration = 30;
+    [SerializeField] float walkSpeed = 10;
     [Space]
     [Tooltip("the acceleration when pressing wasd in air")] public float airAcceleration = 20;
     [Tooltip("the max air speed achievable by wasd input only")] public float airSpeed = 2;

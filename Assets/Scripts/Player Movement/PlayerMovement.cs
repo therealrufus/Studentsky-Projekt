@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (var move in moves)
         {
             move.master = this;
+            move.Inicialize();
         }
     }
 
@@ -48,8 +49,7 @@ public class PlayerMovement : MonoBehaviour
         GetMovementInput();
 
         //choose a move
-        if (!hasDuration)
-            CheckMoves();
+        if (!hasDuration) ChooseMoves();
         else hasDuration = moves[currentMove].ShouldContinue();
 
         //add velocity based on moves
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         moves[currentMove].Collide(hit);
     }
 
-    void CheckMoves()
+    void ChooseMoves()
     {
         //choose a move
         int lastMove = currentMove;
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         hasDuration = moves[currentMove].hasDuration;
-        if (hasDuration) moves[currentMove].OnStart();
+        if (hasDuration) moves[currentMove].Begin();
     }
 
     void SetGrounded(bool value)

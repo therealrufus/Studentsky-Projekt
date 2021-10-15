@@ -4,25 +4,23 @@ public class MoveGrapple : PlayerMoveOption
 {
     [Space(20)]
     [Tooltip("from where should the grapple be raycasted")]
-    public Transform head;
+    [SerializeField] Transform head;
     [Tooltip("at what looking angle should the player detach (-1: never, 1: always)")]
     [Range(-1f, 1f)]
-    public float stopLookAngle = 0.25f;
+    [SerializeField] float stopLookAngle = 0.25f;
     [Tooltip("the max reach of the grappling hook")]
-    public float maxDistance = 999f;
+    [SerializeField] float maxDistance = 999f;
     [Tooltip("how close of the grapple point should the player detach")]
-    public float stopDistance = 5f;
+    [SerializeField] float stopDistance = 5f;
     [Tooltip("the grappling acceleration")]
-    public float acceleration = 50f;
+    [SerializeField] float acceleration = 50f;
     [Tooltip("the max grappling speed achieved by accelerating")]
-    public float speedCap = 30f;
+    [SerializeField] float speedCap = 30f;
     [Tooltip("the initial boost toward the grapple point")]
-    public float initialBoost = 10f;
-    [Tooltip("the force to apply when jumping of a grapple move")]
-    public float jumpForce = 20f;
+    [SerializeField] float initialBoost = 10f;
     [Space]
     [Tooltip("how far can the player deviate from the grapple point")]
-    public float maxAngle = 10f;
+    [SerializeField] float maxAngle = 10f;
 
 
     [HideInInspector] public Vector3 impactPoint;
@@ -37,7 +35,7 @@ public class MoveGrapple : PlayerMoveOption
 
     public override bool ShouldStart()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButton(0))
         {
             if (Physics.Raycast(head.position, head.forward, out ray, maxDistance))
             {
@@ -48,7 +46,7 @@ public class MoveGrapple : PlayerMoveOption
         return false;
     }
 
-    public override void OnStart()
+    public override void Begin()
     {
         impactPoint = ray.point;
         Impact(ray.normal * -1);
@@ -70,9 +68,11 @@ public class MoveGrapple : PlayerMoveOption
 
         if (Input.GetKey(KeyCode.Space))
         {
-            if (master.SPEED.y > 0)
-                master.SPEED += Vector3.up * jumpForce;
-            else master.SPEED.y = jumpForce;
+            return false;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
             return false;
         }
 
@@ -137,18 +137,6 @@ public class MoveGrapple : PlayerMoveOption
 
     private void OnDrawGizmos()
     {
-        /*Vector3 sped = dir;
-        Vector3 pos = new Vector3(4, 5, 1);
-        Vector3 right = Vector3.Cross(Vector3.up, dir).normalized;
-        Vector3 result = Quaternion.AngleAxis(Time.time * 60, right) * sped;
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(pos, sped);
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(pos, result);
-        result = Quaternion.AngleAxis(Time.time * 60, Vector3.Cross(dir, right)) * sped;
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(pos, result);*/
-
         Gizmos.color = Color.white;
         Gizmos.DrawSphere(impactPoint, 0.4f);
         Gizmos.color = Color.red;

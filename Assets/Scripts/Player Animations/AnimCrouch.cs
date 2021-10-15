@@ -22,13 +22,11 @@ public class AnimCrouch : PlayerEffect
 
     void Crouch()
     {
-        Debug.Log("crouch");
         target.DOLocalMove(crouchedHeadPos, duration);
     }
 
     void UnCrouch()
     {
-        Debug.Log("stopcrouch");
         target.DOLocalMove(Vector3.zero, duration);
     }
 }

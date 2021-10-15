@@ -3,22 +3,22 @@ using UnityEngine;
 public class MoveCrouch : PlayerMoveOption
 {
     [Space(20)]
-    public MoveBasic basicMovement;
+    [SerializeField] MoveBasic basicMovement;
 
     [Range(0, 1)]
     [Tooltip("How much is the player boosted on impact")]
-    public float boostForce = 0.3f;
-    [Tooltip("should the player strafe slower when crouching in air?")] 
-    public float airAccelerationMultiplier = 0.5f;
-    [Tooltip("ground friction")] 
-    public float deceleration = 10f;
+    [SerializeField] float boostForce = 0.3f;
+    [Tooltip("should the player strafe slower when crouching in air?")]
+    [SerializeField] float airAccelerationMultiplier = 0.5f;
+    [Tooltip("ground friction")]
+    [SerializeField] float deceleration = 10f;
     [Space]
-    [Tooltip("should the player be heavier when crouching?")] 
-    public float airGravityMultiplier = 1.5f;
-    [Tooltip("bigger value, bigger acceleration on slopes")] 
-    public float groundGravityMultiplier = 4f;
-    [Tooltip("bigger value, bigger acceleration on slopes")] 
-    public float groundClimbGravityMultiplier = 1.5f;
+    [Tooltip("should the player be heavier when crouching?")]
+    [SerializeField] float airGravityMultiplier = 1.5f;
+    [Tooltip("bigger value, bigger acceleration on slopes")]
+    [SerializeField] float groundGravityMultiplier = 4f;
+    [Tooltip("bigger value, bigger acceleration on slopes")]
+    [SerializeField] float groundClimbGravityMultiplier = 1.5f;
 
     [Range(0, 1)]
     [Tooltip("how much speed at least should be preserved when jumping")] public float jumpDirectionalForce = 0.1f;
@@ -69,7 +69,7 @@ public class MoveCrouch : PlayerMoveOption
 
         float dotProduct = 0.5f * Vector3.Dot(transform.forward, horizontalSpeed.normalized) + 0.5f;
 
-        speed *= Mathf.Clamp(dotProduct+ jumpDirectionalForce, 0, 1);
+        speed *= Mathf.Clamp(dotProduct + jumpDirectionalForce, 0, 1);
 
         master.SPEED = speed + Vector3.up * basicMovement.jumpForce;
         master.grounded = false;
@@ -107,7 +107,7 @@ public class MoveCrouch : PlayerMoveOption
             groundDir.y = 0;
             groundDir = groundDir.normalized;
 
-            if(Vector3.Dot(horizontalPlayerDir, groundDir) < 0)
+            if (Vector3.Dot(horizontalPlayerDir, groundDir) < 0)
                 force = groundClimbGravityMultiplier;
         }
         return force;

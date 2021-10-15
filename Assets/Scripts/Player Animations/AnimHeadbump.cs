@@ -9,6 +9,7 @@ public class AnimHeadbump : PlayerEffect
     [SerializeField] float headBumpForce;
     [SerializeField] float headBumpSpeed;
     Transform target;
+    Coroutine coroutine = null;
 
     // Start is called before the first frame update
     void Start()
@@ -24,17 +25,20 @@ public class AnimHeadbump : PlayerEffect
     void AnimateJump()
     {
         headBumpForce = Mathf.Abs(headBumpForce);
-        StartCoroutine("JumpAnimation");
+        if (coroutine != null) StopCoroutine(coroutine);
+        coroutine = StartCoroutine("JumpAnimation");
     }
 
     void AnimateLanding()
     {
         headBumpForce = -1 * Mathf.Abs(headBumpForce);
-        StartCoroutine("JumpAnimation");
+        if(coroutine != null) StopCoroutine(coroutine);
+        coroutine = StartCoroutine("JumpAnimation");
     }
 
     IEnumerator JumpAnimation()
     {
+        target.localEulerAngles = Vector3.zero;
         float time = 0;
         while (time < 1)
         {
@@ -42,5 +46,6 @@ public class AnimHeadbump : PlayerEffect
             time += Time.deltaTime * headBumpSpeed;
             yield return null;
         }
+        target.localEulerAngles = Vector3.zero;
     }
 }
