@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -14,10 +15,19 @@ public class PlayerMovement : MonoBehaviour
     int currentMove;
     bool hasDuration;
 
+    public PlayerMoveOption currentMoveOption
+    {
+        get { return moves[currentMove]; }
+    }
+
     [HideInInspector]
     public CharacterController controller;
+
     [HideInInspector]
     public Vector3 SPEED;
+    [HideInInspector]
+    public Vector3 lastFrameSpeed = Vector3.zero;
+
     [HideInInspector]
     public bool grounded;
 
@@ -32,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
     [Space]
     [Tooltip("DEBUG ONLY!!!")] public Text speedText;
     [Tooltip("DEBUG ONLY!!!")] public Text typeText;
+
+    //effectors
+    [HideInInspector] public List<PlayerEffector> activeEffectors;
+
 
     private void Start()
     {
@@ -50,20 +64,28 @@ public class PlayerMovement : MonoBehaviour
 
         //choose a move
         if (!hasDuration) ChooseMoves();
-        else hasDuration = moves[currentMove].ShouldContinue();
+        else hasDuration = currentMoveOption.ShouldContinue();
 
         //add velocity based on moves
-        moves[currentMove].Move();
-        moves[currentMove].OnMove.Invoke();
+        currentMoveOption.Move();
+        currentMoveOption.OnMove.Invoke();
+
+        //add effector forces
+        SPEED += GetEffectorMoves(false);
 
         ApplyMovement();
 
         //debug
         speedText.text = Mathf.Round(SPEED.magnitude).ToString();
         speedText.color = grounded ? Color.black : Color.grey;
-        typeText.text = moves[currentMove].ToString();
+        typeText.text = currentMoveOption.ToString();
 
         groundedForFrames++;
+    }
+
+    private void LateUpdate()
+    {
+        lastFrameSpeed = SPEED;
     }
 
     void GetMovementInput()
@@ -76,7 +98,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.DrawRay(transform.position, SPEED, Color.red);
 
-        CollisionFlags flags = controller.Move(SPEED * Time.deltaTime);
+        Vector3 finalSpeed = SPEED;
+
+        //add effector constant forces
+        finalSpeed += GetEffectorMoves(true);
+
+        CollisionFlags flags = controller.Move(finalSpeed * Time.deltaTime);
         if (flags == CollisionFlags.None) /*grounded = false;*/ SetGrounded(false);
     }
 
@@ -108,17 +135,27 @@ public class PlayerMovement : MonoBehaviour
         //execute the move
         if (lastMove != currentMove)
         {
-            moves[currentMove].OnBegin.Invoke();
+            currentMoveOption.OnBegin.Invoke();
             moves[lastMove].OnEnd.Invoke();
         }
 
-        hasDuration = moves[currentMove].hasDuration;
-        if (hasDuration) moves[currentMove].Begin();
+        hasDuration = currentMoveOption.hasDuration;
+        if (hasDuration) currentMoveOption.Begin();
     }
 
     void SetGrounded(bool value)
     {
         if (value != grounded) groundedForFrames = 0;
         grounded = value;
+    }
+
+    Vector3 GetEffectorMoves(bool constant)
+    {
+        Vector3 force = Vector3.zero;
+        foreach (var effector in activeEffectors)
+        {
+            force += constant ? effector.ConstantMove() : effector.Move();
+        }
+        return force;
     }
 }
