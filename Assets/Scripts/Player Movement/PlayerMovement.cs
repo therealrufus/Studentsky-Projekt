@@ -76,9 +76,9 @@ public class PlayerMovement : MonoBehaviour
         ApplyMovement();
 
         //debug
-        speedText.text = Mathf.Round(SPEED.magnitude).ToString();
-        speedText.color = grounded ? Color.black : Color.grey;
-        typeText.text = currentMoveOption.ToString();
+        if(speedText != null) speedText.text = Mathf.Round(SPEED.magnitude).ToString();
+        if(speedText != null) speedText.color = grounded ? Color.black : Color.grey;
+        if(typeText != null) typeText.text = currentMoveOption.ToString();
 
         groundedForFrames++;
     }
