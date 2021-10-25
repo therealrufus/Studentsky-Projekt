@@ -9,6 +9,7 @@ public class MoveDoubleJump : PlayerMoveOption
 
     [Space]
     [SerializeField] MoveWallride moveWallride;
+    [SerializeField] MoveGrapple moveGrapple;
     bool canJump;
 
     private void Update()
@@ -19,6 +20,7 @@ public class MoveDoubleJump : PlayerMoveOption
     public override void Inicialize()
     {
         moveWallride.OnEnd.AddListener(ResetJump);
+        moveGrapple.OnEnd.AddListener(ResetJump);
     }
 
     public override bool ShouldStart()
@@ -51,6 +53,7 @@ public class MoveDoubleJump : PlayerMoveOption
 
     void ResetJump()
     {
+        Debug.Log(Time.time);
         Invoke("HardResetJump", 0.1f);
     }
 

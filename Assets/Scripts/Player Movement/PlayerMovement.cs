@@ -63,8 +63,7 @@ public class PlayerMovement : MonoBehaviour
         GetMovementInput();
 
         //choose a move
-        if (!hasDuration) ChooseMoves();
-        else hasDuration = currentMoveOption.ShouldContinue();
+        if (!hasDuration || !currentMoveOption.ShouldContinue()) ChooseMoves();
 
         //add velocity based on moves
         currentMoveOption.Move();
@@ -76,9 +75,9 @@ public class PlayerMovement : MonoBehaviour
         ApplyMovement();
 
         //debug
-        if(speedText != null) speedText.text = Mathf.Round(SPEED.magnitude).ToString();
-        if(speedText != null) speedText.color = grounded ? Color.black : Color.grey;
-        if(typeText != null) typeText.text = currentMoveOption.ToString();
+        if (speedText != null) speedText.text = Mathf.Round(SPEED.magnitude).ToString();
+        if (speedText != null) speedText.color = grounded ? Color.black : Color.grey;
+        if (typeText != null) typeText.text = currentMoveOption.ToString();
 
         groundedForFrames++;
     }
@@ -136,11 +135,11 @@ public class PlayerMovement : MonoBehaviour
         if (lastMove != currentMove)
         {
             currentMoveOption.OnBegin.Invoke();
+            currentMoveOption.Begin();
             moves[lastMove].OnEnd.Invoke();
         }
 
         hasDuration = currentMoveOption.hasDuration;
-        if (hasDuration) currentMoveOption.Begin();
     }
 
     void SetGrounded(bool value)

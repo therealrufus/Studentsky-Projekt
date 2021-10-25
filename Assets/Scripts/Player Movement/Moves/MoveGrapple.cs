@@ -5,6 +5,9 @@ public class MoveGrapple : PlayerMoveOption
     [Space(20)]
     [Tooltip("from where should the grapple be raycasted")]
     [SerializeField] Transform head;
+    [Tooltip("how much should the player be affected by falling")]
+    [Range(0f, 1f)]
+    [SerializeField] float fallSpeedMultiplier;
     [Tooltip("at what looking angle should the player detach (-1: never, 1: always)")]
     [Range(-1f, 1f)]
     [SerializeField] float stopLookAngle = 0.25f;
@@ -49,27 +52,18 @@ public class MoveGrapple : PlayerMoveOption
     public override void Begin()
     {
         impactPoint = ray.point;
-        Impact(ray.normal * -1);
+        //Impact(ray.normal * -1);
         grappleInput = Vector3.zero;
     }
 
     public override bool ShouldContinue()
     {
         if (Vector3.Distance(transform.position, impactPoint) <= stopDistance)
-        {
             return false;
-        }
-
         if (Vector3.Dot(head.forward, direction) < stopLookAngle)
             return false;
-
         if (Input.GetKey(KeyCode.LeftControl))
             return false;
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            return false;
-        }
 
 
         return true;
@@ -78,6 +72,7 @@ public class MoveGrapple : PlayerMoveOption
     public override void Move()
     {
         base.Move();
+
         anglePos = Rotate();
 
         Vector3 force = (anglePos - transform.position).normalized;
@@ -87,6 +82,8 @@ public class MoveGrapple : PlayerMoveOption
         speed += force;
         speed = Vector3.ClampMagnitude(speed, Mathf.Max(speedCap, master.SPEED.magnitude));
         master.SPEED = speed;
+
+        Fall();
 
         Debug.DrawLine(transform.position, impactPoint, Color.black);
     }
@@ -128,6 +125,11 @@ public class MoveGrapple : PlayerMoveOption
         force *= initialBoost;
 
         master.SPEED += force;
+    }
+
+    protected override void Fall()
+    {
+        master.SPEED.y -= master.gravity * fallSpeedMultiplier * Time.deltaTime;
     }
 
     private void OnDrawGizmos()

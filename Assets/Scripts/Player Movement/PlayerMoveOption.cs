@@ -67,7 +67,7 @@ public class PlayerMoveOption : MonoBehaviour
 
     public virtual bool ShouldContinue()
     {
-        return true;
+        return false;
     }
 
     public virtual void Begin()
