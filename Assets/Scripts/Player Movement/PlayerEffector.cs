@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerEffector : MonoBehaviour
 {
     protected PlayerMovement playerMovement;
+    public bool cancelMoves = false;
 
     protected bool GetPlayer(GameObject player)
     {

@@ -62,12 +62,15 @@ public class PlayerMovement : MonoBehaviour
     {
         GetMovementInput();
 
-        //choose a move
-        if (!hasDuration || !currentMoveOption.ShouldContinue()) ChooseMoves();
+        if (!GetEffectorCancel())
+        {
+            //choose a move
+            if (!hasDuration || !currentMoveOption.ShouldContinue()) ChooseMoves();
 
-        //add velocity based on moves
-        currentMoveOption.Move();
-        currentMoveOption.OnMove.Invoke();
+            //add velocity based on moves
+            currentMoveOption.Move();
+            currentMoveOption.OnMove.Invoke();
+        }
 
         //add effector forces
         SPEED += GetEffectorMoves(false);
@@ -156,5 +159,14 @@ public class PlayerMovement : MonoBehaviour
             force += constant ? effector.ConstantMove() : effector.Move();
         }
         return force;
+    }
+
+    bool GetEffectorCancel()
+    {
+        foreach (var effector in activeEffectors)
+        {
+            if (effector.cancelMoves) return true;
+        }
+        return false;
     }
 }

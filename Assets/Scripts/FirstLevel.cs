@@ -8,13 +8,11 @@ public class FirstLevel : MonoBehaviour
 {
     public PlayerMovement playerMovement;
     public Text text;
-    Vector3 startPos = Vector3.zero;
     int rings = 0;
     float t;
 
     private void Start()
     {
-        startPos = playerMovement.transform.position;
         t = 0;
     }
 
@@ -22,7 +20,7 @@ public class FirstLevel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)) Restart();
         if (rings > 0) t += Time.deltaTime;
-        text.text = $"{(float)(Mathf.RoundToInt(t * 10f)) / 10f}s | rings left:{rings}";
+        if (text != null) text.text = $"{(float)(Mathf.RoundToInt(t * 10f)) / 10f}s | rings left:{rings}";
     }
 
     void Restart()
