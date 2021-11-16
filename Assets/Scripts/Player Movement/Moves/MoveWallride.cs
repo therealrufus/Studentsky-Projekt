@@ -5,6 +5,7 @@ public class MoveWallride : PlayerMoveOption
 {
     [Space(20)]
     [SerializeField] MoveBasic basicMovement;
+    [SerializeField] LayerMask IgnoreMask;
 
     
 
@@ -33,20 +34,28 @@ public class MoveWallride : PlayerMoveOption
         RaycastHit rayRight;
         RaycastHit rayLeft;
 
-        if (Physics.Raycast(transform.position, transform.right, out rayRight, maxDistance))
+        //fuj
+        if (Physics.Raycast(transform.position, transform.right, out rayRight, maxDistance, ~IgnoreMask))
         {
-            if (Vector3.Dot(transform.right, rayRight.normal * -1) > maxAngle && Mathf.Abs(rayRight.normal.y) <= maxAngleUp)
+            if (!rayRight.collider.isTrigger)
             {
-                normal = rayRight.normal;
-                return true;
+                if (Vector3.Dot(transform.right, rayRight.normal * -1) > maxAngle && Mathf.Abs(rayRight.normal.y) <= maxAngleUp)
+                {
+                    normal = rayRight.normal;
+                    return true;
+                }
             }
         }
-        else if (Physics.Raycast(transform.position, -transform.right, out rayLeft, maxDistance))
+
+        else if (Physics.Raycast(transform.position, -transform.right, out rayLeft, maxDistance, ~IgnoreMask))
         {
-            if (Vector3.Dot(-transform.right, rayLeft.normal * -1) > maxAngle && Mathf.Abs(rayLeft.normal.y) <= maxAngleUp)
+            if (!rayLeft.collider.isTrigger)
             {
-                normal = rayLeft.normal;
-                return true;
+                if (Vector3.Dot(-transform.right, rayLeft.normal * -1) > maxAngle && Mathf.Abs(rayLeft.normal.y) <= maxAngleUp)
+                {
+                    normal = rayLeft.normal;
+                    return true;
+                }
             }
         }
 

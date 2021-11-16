@@ -34,12 +34,8 @@ public class EffectorZipline : PlayerEffector
         line.SetPosition(0, pointA.position);
         line.SetPosition(1, pointB.position);
 
-        //http://www.theappguruz.com/blog/add-collider-to-line-renderer-unity thx Swati Panel
-        col.size = new Vector3(colliderSize, colliderSize, Vector3.Distance(pointA.position, pointB.position));
-        Vector3 midPoint = (pointA.position + pointB.position) / 2;
-        col.transform.position = midPoint;
+        SetupCollider();
 
-        col.transform.LookAt(pointA, transform.up);
         normal = pointB.position - pointA.position;
         normal = normal.normalized;
 
@@ -67,10 +63,11 @@ public class EffectorZipline : PlayerEffector
     {
         if (Input.GetKey(KeyCode.E) && !hooked)
         {
-            GetPlayer(other.gameObject);
-            Subscribe();
-            if (playerMovement != null)
+
+            if (GetPlayer(other.gameObject))
             {
+                Subscribe();
+
                 Vector3 speed = Vector3.Project(playerMovement.SPEED, normal);
                 if (speed.sqrMagnitude < speedBonus * speedBonus)
                     speed += speed.normalized * speedBonus;
@@ -84,6 +81,17 @@ public class EffectorZipline : PlayerEffector
     {
         UnSubscribe();
         hooked = false;
+    }
+
+    void SetupCollider()
+    {
+        //scaling collider
+        //http://www.theappguruz.com/blog/add-collider-to-line-renderer-unity thx Swati Panel
+        col.size = new Vector3(colliderSize, colliderSize, Vector3.Distance(pointA.position, pointB.position));
+        Vector3 midPoint = (pointA.position + pointB.position) / 2;
+        col.transform.position = midPoint;
+
+        col.transform.LookAt(pointA, transform.up);
     }
 
     Vector3 GetClosestPointLine(Vector3 point, Vector3 line_start, Vector3 line_end)

@@ -3,8 +3,7 @@ using UnityEngine;
 public class MoveGrapple : PlayerMoveOption
 {
     [Space(20)]
-    [Tooltip("from where should the grapple be raycasted")]
-    [SerializeField] Transform head;
+    [SerializeField] LayerMask IgnoreMask;
     [Tooltip("how much should the player be affected by falling")]
     [Range(0f, 1f)]
     [SerializeField] float fallSpeedMultiplier;
@@ -40,7 +39,7 @@ public class MoveGrapple : PlayerMoveOption
     {
         if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(head.position, head.forward, out ray, maxDistance))
+            if (Physics.Raycast(master.head.position, master.head.forward, out ray, maxDistance, ~IgnoreMask))
             {
                 return true;
             }
@@ -60,7 +59,7 @@ public class MoveGrapple : PlayerMoveOption
     {
         if (Vector3.Distance(transform.position, impactPoint) <= stopDistance)
             return false;
-        if (Vector3.Dot(head.forward, direction) < stopLookAngle)
+        if (Vector3.Dot(master.head.forward, direction) < stopLookAngle)
             return false;
         if (Input.GetKey(KeyCode.LeftControl))
             return false;
@@ -84,15 +83,11 @@ public class MoveGrapple : PlayerMoveOption
         master.SPEED = speed;
 
         Fall();
-
-        Debug.DrawLine(transform.position, impactPoint, Color.black);
     }
 
     Vector3 Rotate()
     {
         Vector3 input = master.rawArrowInput;
-
-        CameraInput();
 
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
 
@@ -105,9 +100,10 @@ public class MoveGrapple : PlayerMoveOption
         return (rotation * grappleInput) + impactPoint;
     }
 
+    //not working
     Vector2 CameraInput()
     {
-        Vector3 cameraDirection = head.forward;
+        Vector3 cameraDirection = master.head.forward;
         //Vector3 direction = (impactPoint - transform.position).normalized;
         
         return Vector3.zero;

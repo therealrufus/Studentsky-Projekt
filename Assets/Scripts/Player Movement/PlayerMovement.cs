@@ -6,6 +6,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    public Transform head;
     [Range(0, 1)]
     [Tooltip("(not working) the minimal angle to be grounded")] public float groundedAngle;
     public float gravity = 10f;
