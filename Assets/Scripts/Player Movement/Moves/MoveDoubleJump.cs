@@ -10,6 +10,7 @@ public class MoveDoubleJump : PlayerMoveOption
     [Space]
     [SerializeField] MoveWallride moveWallride;
     [SerializeField] MoveGrapple moveGrapple;
+    [SerializeField] MoveKick moveKick;
     bool canJump;
 
     private void Update()
@@ -21,6 +22,7 @@ public class MoveDoubleJump : PlayerMoveOption
     {
         moveWallride.OnEnd.AddListener(ResetJump);
         moveGrapple.OnEnd.AddListener(ResetJump);
+        moveKick.OnEnd.AddListener(ResetJump);
     }
 
     public override bool ShouldStart()

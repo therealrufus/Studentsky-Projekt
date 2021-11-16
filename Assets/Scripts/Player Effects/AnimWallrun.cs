@@ -10,8 +10,10 @@ public class AnimWallrun : PlayerEffect
     public Transform cam;
     Transform target;
 
-    public float angle;
-    public float time;
+    [SerializeField] float angle;
+    [SerializeField] float time;
+
+    [SerializeField] Vector3 handOffset;
 
     float finalAngle;
 
@@ -19,6 +21,7 @@ public class AnimWallrun : PlayerEffect
     {
         wallride.OnBegin.AddListener(RotateCam);
         wallride.OnEnd.AddListener(ResetCam);
+        wallride.OnMove.AddListener(AnimateHand);
         target = SpawnHolder(cam);
     }
 
@@ -34,6 +37,22 @@ public class AnimWallrun : PlayerEffect
         target.DOLocalRotate(new Vector3(0, 0, 0), time);
     }
 
+    void AnimateHand()
+    {
+        float lookDir = AngleDir(wallride.transform.forward, wallride.normal, Vector3.up) * -1;
+        Vector3 lookVector = Vector3.Cross(wallride.transform.up, wallride.normal) * lookDir;
+        Vector3 finalHandPos = wallride.transform.position;
+        finalHandPos += lookVector * handOffset.x;
+        finalHandPos += Vector3.up * handOffset.y;
+        finalHandPos += wallride.normal * handOffset.z;
+
+        master.MoveWithEase(lookDir == 1 ? master.handRight : master.handLeft, finalHandPos, false, 0.2f);
+        master.RotateWithEase(lookDir == 1 ? master.handRight : master.handLeft, Quaternion.identity);
+
+        Debug.DrawRay(wallride.transform.position, lookVector, Color.black);
+
+    }
+
     float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 up)
     {
         Vector3 perp = Vector3.Cross(fwd, targetDir);
@@ -47,9 +66,7 @@ public class AnimWallrun : PlayerEffect
         {
             return -1f;
         }
-        else
-        {
-            return 0f;
-        }
+
+        return 0f;
     }
 }
