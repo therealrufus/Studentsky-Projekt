@@ -22,7 +22,7 @@ public class MoveDoubleJump : PlayerMoveOption
     {
         moveWallride.OnEnd.AddListener(ResetJump);
         moveGrapple.OnEnd.AddListener(ResetJump);
-        moveKick.OnEnd.AddListener(ResetJump);
+        moveKick.OnJump.AddListener(ResetJump);
     }
 
     public override bool ShouldStart()
@@ -55,7 +55,6 @@ public class MoveDoubleJump : PlayerMoveOption
 
     void ResetJump()
     {
-        Debug.Log(Time.time);
         Invoke("HardResetJump", 0.1f);
     }
 

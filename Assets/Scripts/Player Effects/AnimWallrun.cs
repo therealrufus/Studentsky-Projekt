@@ -7,7 +7,6 @@ public class AnimWallrun : PlayerEffect
 {
     [Space]
     public MoveWallride wallride;
-    public Transform cam;
     Transform target;
 
     [SerializeField] float angle;
@@ -22,7 +21,7 @@ public class AnimWallrun : PlayerEffect
         wallride.OnBegin.AddListener(RotateCam);
         wallride.OnEnd.AddListener(ResetCam);
         wallride.OnMove.AddListener(AnimateHand);
-        target = SpawnHolder(cam);
+        target = SpawnHolder(master.cam.transform);
     }
 
     void RotateCam()
