@@ -21,7 +21,7 @@ public class PlayerEffectsMaster : MonoBehaviour
 
     public void RotateWithEase(Transform hand, Quaternion newRotation, Quaternion lastRotation, bool local = false, float easingSpeed = -99f)
     {
-        if (easingSpeed < -500) easingSpeed = EasingSpeed;
+        if (easingSpeed < -10) easingSpeed = EasingSpeed;
 
         if (local)
             hand.localRotation = Quaternion.Lerp(lastRotation, newRotation, easingSpeed * 100 * Time.deltaTime);

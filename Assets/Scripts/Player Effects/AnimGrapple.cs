@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AnimGrapple : PlayerEffect
 {
-    public MoveGrapple grapple;
-    public LineRenderer line;
+    [SerializeField] MoveGrapple grapple;
+    [SerializeField] LineRenderer line;
 
     Coroutine grapplingCoroutine;
 
@@ -13,6 +13,7 @@ public class AnimGrapple : PlayerEffect
     {
         grapple.OnBegin.AddListener(StartGrappling);
         grapple.OnEnd.AddListener(StopGrappling);
+        grapple.OnMove.AddListener(UpdateGrapple);
         line.enabled = false;
     }
 
@@ -26,9 +27,13 @@ public class AnimGrapple : PlayerEffect
         line.enabled = false;
     }
 
+    void UpdateGrapple()
+    { }
+
     IEnumerator Grappling()
     {
         //proc jsem nepouzil onMove??
+        //onMove je nejakej divnej
 
         line.enabled = true;
         while (true)
@@ -41,6 +46,7 @@ public class AnimGrapple : PlayerEffect
 
             line.SetPosition(0, master.handLeft.position);
             line.SetPosition(1, grapple.impactPoint);
+
             yield return null;
         }
     }

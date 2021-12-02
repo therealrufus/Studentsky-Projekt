@@ -3,6 +3,7 @@ using UnityEngine;
 public class MoveGrapple : PlayerMoveOption
 {
     [Space(20)]
+    [SerializeField] float cooldown;
     [SerializeField] LayerMask IgnoreMask;
     [Tooltip("how much should the player be affected by falling")]
     [Range(0f, 1f)]
@@ -29,19 +30,28 @@ public class MoveGrapple : PlayerMoveOption
     Vector3 grappleInput;
     Vector3 anglePos;
     RaycastHit ray;
+    float realCooldown = -1;
 
-    Vector3 direction
+    public Vector3 direction
     {
         get { return (impactPoint - transform.position).normalized; }
+    }
+
+    private void Update()
+    {
+        realCooldown -= Time.deltaTime;
     }
 
     public override bool ShouldStart()
     {
         if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(master.head.position, master.head.forward, out ray, maxDistance, ~IgnoreMask))
+            if (realCooldown <= 0)
             {
-                return true;
+                if (Physics.Raycast(master.head.position, master.head.forward, out ray, maxDistance, ~IgnoreMask))
+                {
+                    return true;
+                }
             }
         }
 
@@ -58,11 +68,20 @@ public class MoveGrapple : PlayerMoveOption
     public override bool ShouldContinue()
     {
         if (Vector3.Distance(transform.position, impactPoint) <= stopDistance)
+        {
+            realCooldown = cooldown;
             return false;
+        }
         if (Vector3.Dot(master.head.forward, direction) < stopLookAngle)
+        {
+            realCooldown = cooldown;
             return false;
+        }
         if (Input.GetKey(KeyCode.LeftControl))
+        {
+            realCooldown = cooldown;
             return false;
+        }
 
 
         return true;
@@ -105,7 +124,7 @@ public class MoveGrapple : PlayerMoveOption
     {
         Vector3 cameraDirection = master.head.forward;
         //Vector3 direction = (impactPoint - transform.position).normalized;
-        
+
         return Vector3.zero;
     }
 

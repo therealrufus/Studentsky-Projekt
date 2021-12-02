@@ -9,6 +9,7 @@ public class MoveKick : PlayerMoveOption
     [SerializeField] LayerMask IgnoreMask;
     public float distance;
     public float time;
+    public float delay;
     [SerializeField] float minForce;
     [SerializeField] float addForce;
 
@@ -17,6 +18,7 @@ public class MoveKick : PlayerMoveOption
     [HideInInspector] public float realDistance;
     bool shouldContinue;
     Vector3 direction;
+    [HideInInspector] public float delayTime;
 
     public override bool ShouldStart()
     {
@@ -32,13 +34,16 @@ public class MoveKick : PlayerMoveOption
     {
         shouldContinue = true;
         realDistance = 0f;
+        delayTime = delay;
     }
 
     public override void Move()
     {
         base.Move();
-
         Fall();
+
+        delayTime -= Time.deltaTime;
+        if (delayTime > 0) return;
 
         realDistance += (distance / time) * Time.deltaTime;
         direction = master.head.forward;
@@ -51,6 +56,8 @@ public class MoveKick : PlayerMoveOption
             if (force < minForce) force = minForce;
 
             master.SPEED = direction * -1 * force;
+
+            OnJump.Invoke();
         }
 
         if (realDistance >= distance) shouldContinue = false;
