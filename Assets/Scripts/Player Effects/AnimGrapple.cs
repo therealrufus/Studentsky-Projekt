@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class AnimGrapple : PlayerEffect
 {
@@ -8,6 +9,9 @@ public class AnimGrapple : PlayerEffect
     [SerializeField] LineRenderer line;
 
     Coroutine grapplingCoroutine;
+    Transform target;
+
+    [SerializeField] float maxAngle;
 
     void Start()
     {
@@ -15,6 +19,7 @@ public class AnimGrapple : PlayerEffect
         grapple.OnEnd.AddListener(StopGrappling);
         grapple.OnMove.AddListener(UpdateGrapple);
         line.enabled = false;
+        target = SpawnHolder(master.cam.transform);
     }
 
     void StartGrappling()
@@ -25,10 +30,17 @@ public class AnimGrapple : PlayerEffect
     {
         StopCoroutine(grapplingCoroutine);
         line.enabled = false;
+        target.DOLocalRotate(Vector3.zero, 0.3f);
     }
 
     void UpdateGrapple()
-    { }
+    {
+        Vector3 camDir = master.camHolder.forward;
+        Vector3 pointDir = grapple.direction;
+        Vector3 goalDir = Vector3.RotateTowards(camDir.normalized, pointDir.normalized, maxAngle, 10000);
+
+        target.forward = Vector3.Lerp(target.forward, goalDir, master.easeFactor * 0.5f);
+    }
 
     IEnumerator Grappling()
     {

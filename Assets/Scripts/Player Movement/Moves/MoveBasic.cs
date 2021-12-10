@@ -44,7 +44,7 @@ public class MoveBasic : PlayerMoveOption
         master.SPEED -= Vector3.ClampMagnitude(horizontalSpeed.normalized * Time.deltaTime * walkDeceleration, horizontalSpeed.magnitude);
 
         //jumping
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(InputManager.Jump))
         {
             Jump();
         }

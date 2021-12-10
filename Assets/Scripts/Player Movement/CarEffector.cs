@@ -47,7 +47,7 @@ public class CarEffector : PlayerEffector
     private void OnTriggerStay(Collider other)
     {
 
-        if (Input.GetKey(KeyCode.E) && !inside)
+        if (Input.GetKey(InputManager.Action) && !inside)
         {
 
             if (GetPlayer(other.gameObject))

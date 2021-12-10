@@ -31,6 +31,8 @@ public class MoveWallride : PlayerMoveOption
     {
         if (master.grounded || (master.groundedForFrames <= minimumTreshold)) return false;
 
+        if (Input.GetKey(InputManager.Crouch)) return false;
+
         RaycastHit rayRight;
         RaycastHit rayLeft;
 
@@ -74,7 +76,7 @@ public class MoveWallride : PlayerMoveOption
 
         master.SPEED -= normal * stickToSurfaceForce * Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space)) Jump();
+        if (Input.GetKeyDown(InputManager.Jump)) Jump();
         Fall();
     }
 

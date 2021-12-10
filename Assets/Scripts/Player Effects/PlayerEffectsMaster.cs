@@ -9,10 +9,17 @@ public class PlayerEffectsMaster : MonoBehaviour
     public Transform player;
     public PlayerMovement playerMovement;
     public Camera cam;
+    public Transform camHolder;
     public Transform handLeft;
     public Transform handRight;
 
     [SerializeField] float EasingSpeed;
+
+
+    public float easeFactor
+    {
+        get { return 1000 * EasingSpeed * Time.deltaTime; }
+    }
 
     public void RotateWithEase(Transform hand, Quaternion newRotation, bool local = false, float easingSpeed = -99f)
     {

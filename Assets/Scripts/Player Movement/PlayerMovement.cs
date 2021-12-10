@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     void GetMovementInput()
     {
-        rawArrowInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        rawArrowInput = InputManager.GetRawArrowInput();
         arrowInput = (transform.right * rawArrowInput.x + transform.forward * rawArrowInput.z).normalized;
     }
 

@@ -25,7 +25,7 @@ public class MoveCrouch : PlayerMoveOption
 
     public override bool ShouldStart()
     {
-        return Input.GetKey(KeyCode.LeftControl);
+        return Input.GetKey(InputManager.Crouch);
     }
 
     public override void Move()
@@ -41,7 +41,7 @@ public class MoveCrouch : PlayerMoveOption
     {
         Fall();
 
-        if (Input.GetKey(KeyCode.Space)) { Jump(); }
+        if (Input.GetKey(InputManager.Jump)) { Jump(); }
 
         master.SPEED -= Vector3.ClampMagnitude(horizontalSpeed.normalized * Time.deltaTime * deceleration, horizontalSpeed.magnitude);
     }

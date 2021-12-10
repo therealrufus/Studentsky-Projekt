@@ -1,0 +1,1072 @@
+fileFormatVersion: 2
+guid: da207b1d2e4742b4aa3cb4195e331c79
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00036
+    second: {fileID: 2100000, guid: 03dc30510efbd3a47819775f87acfad7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00044
+    second: {fileID: 2100000, guid: 5b54daf7127b58448bca919cf98d2a3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00045
+    second: {fileID: 2100000, guid: 52ba9f1042bba684eb3ee89aa2d37f5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00054
+    second: {fileID: 2100000, guid: b2acbb70b27ec4c4f966b43f44e4e0ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00055
+    second: {fileID: 2100000, guid: 43f8b55ff571f9c4cb8a29a943f96131, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00057
+    second: {fileID: 2100000, guid: c0a7d9ceafd51be4a9491cbef939708c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00058
+    second: {fileID: 2100000, guid: 59af4cc41d934c24684cb7b65f3cf2b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00060
+    second: {fileID: 2100000, guid: f58a9bd3f48fd7c439b9990adea18e4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00061
+    second: {fileID: 2100000, guid: 7e2a37669963c3343b1f011d8f92ee32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00062
+    second: {fileID: 2100000, guid: 10eae45bc3b1cc8499a388c1ddf1fdcc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00063
+    second: {fileID: 2100000, guid: 09bfde325a55cc246ae93a3b9e4d903f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00065
+    second: {fileID: 2100000, guid: 96da36e03f5c75440a092143ff0e82b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00066
+    second: {fileID: 2100000, guid: 152d246d44a36404eaf66df4e97a04ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00067
+    second: {fileID: 2100000, guid: 25014e3e5c13ce14284533ab16a0c2e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00070
+    second: {fileID: 2100000, guid: ba077e470cdf5b44ea2145ee55271041, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00071
+    second: {fileID: 2100000, guid: e0d607b9a58c3724bbdd2fcf4b767941, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00072
+    second: {fileID: 2100000, guid: cb57cdf3906f9da4ea5a3749f7c5b808, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00073
+    second: {fileID: 2100000, guid: 21b617f5ffa20ce42a6f8fbfb7eebfe7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00075
+    second: {fileID: 2100000, guid: fb7dc0a17f49eff4980a4cef20b1a2f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00076
+    second: {fileID: 2100000, guid: 1b799c26e936dcd4c9b59319ad7c1659, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00079
+    second: {fileID: 2100000, guid: 45a6f4102c1c19b4490d9e521828c2da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00080
+    second: {fileID: 2100000, guid: b4fc30cec6a3cde4486306dabde31d48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00081
+    second: {fileID: 2100000, guid: ae4a21e2dd389aa4e86cc2e84da7c01a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00084
+    second: {fileID: 2100000, guid: 387f5128bb1237449af6a3539be51d58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00085
+    second: {fileID: 2100000, guid: 44da278e780ad2c418d44a96cb25bc3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00087
+    second: {fileID: 2100000, guid: 76697ca100c20a948bf4a92c80231a3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00088
+    second: {fileID: 2100000, guid: c3b293acfd6f55b4a825174bf4536584, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00090
+    second: {fileID: 2100000, guid: 16a8b84e6243d4d4c925d984bb78b022, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00091
+    second: {fileID: 2100000, guid: 9327f2a186cc21a4fa2351e3db3277b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00094
+    second: {fileID: 2100000, guid: d597974663853fd4a918f888f336c2fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00095
+    second: {fileID: 2100000, guid: 810a11d4082c20c42a1e3f6371777552, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00096
+    second: {fileID: 2100000, guid: db00ad4ed5a1f3b4792b70895efacf82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00099
+    second: {fileID: 2100000, guid: 022939c2a07ae7f4b992f306c196c06e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00100
+    second: {fileID: 2100000, guid: 01f46b400855c154b8a996de1f2e9da2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00101
+    second: {fileID: 2100000, guid: 453a05b41e8a8e342b4f8e6eb47f50e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00102
+    second: {fileID: 2100000, guid: e308e0808bedadb43ac48c6c0b867d7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00103
+    second: {fileID: 2100000, guid: eb810f0225f2db84da6a5f442b121227, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00104
+    second: {fileID: 2100000, guid: 76b1a011a0b9eb64cab86f32101c70fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00106
+    second: {fileID: 2100000, guid: 79d1a9475c8f4204d8adebca3ee9f800, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00109
+    second: {fileID: 2100000, guid: 61af6e1e7eb8b3744a93da514b9d7fa4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00110
+    second: {fileID: 2100000, guid: 33edf32cb67d7354da71172d1ed7ad36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00111
+    second: {fileID: 2100000, guid: 884c4b3ba69fc8a4f9ab1d117fd58bff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00112
+    second: {fileID: 2100000, guid: 8b9c5667c3a4bca4fadc11a9cc470490, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00113
+    second: {fileID: 2100000, guid: 67755d70ee50a8e4faf8d943eb2f0d32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00114
+    second: {fileID: 2100000, guid: 5e65c0f857cfb7a4e8b3bbf9ac79117f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00115
+    second: {fileID: 2100000, guid: 059476269b66cbf4aaa67299ce7a6713, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00120
+    second: {fileID: 2100000, guid: 460f1455961d623419dfba1e8d62ab4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00121
+    second: {fileID: 2100000, guid: dd35e8eba54e1e04a8ebfed9ae9b072f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00122
+    second: {fileID: 2100000, guid: 0bc4a0c769e5b054d8e872d065269725, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00124
+    second: {fileID: 2100000, guid: f3ac6fea02ea3cc41bdfb193b114e8ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00127
+    second: {fileID: 2100000, guid: de663c17581dda04bb0b109bcccb9ec0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00129
+    second: {fileID: 2100000, guid: de4eb902f9d4eed48a56a29bce5bff65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00131
+    second: {fileID: 2100000, guid: 444b00d5a52ec3f46888c6f9fe671e8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00132
+    second: {fileID: 2100000, guid: 4b20c1586f756244e94f17f9a45c7873, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00133
+    second: {fileID: 2100000, guid: 7dc579aa2999ebd43b6c768b1b5ca16d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00134
+    second: {fileID: 2100000, guid: 4634c730ac7f470468e8b586bfc35531, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00135
+    second: {fileID: 2100000, guid: 64502441a63a74848a135b762782617b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00136
+    second: {fileID: 2100000, guid: 64079dc1cb205084caaea8fafc58bf56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00138
+    second: {fileID: 2100000, guid: b1104afda2194474aae78aa12efac33e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00140
+    second: {fileID: 2100000, guid: 3885b46831b97534f907bf1642011997, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00142
+    second: {fileID: 2100000, guid: c1423d4a57158aa46a6af0c31453ecbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00143
+    second: {fileID: 2100000, guid: 80015ccd271fe9844828d48750df4063, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00144
+    second: {fileID: 2100000, guid: 605a31e338cb04542925316f10886873, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00146
+    second: {fileID: 2100000, guid: 79476beb4e89f3045a22e6719f8647a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00147
+    second: {fileID: 2100000, guid: 39365a446bd3b4b4fad81232806f3cd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00151
+    second: {fileID: 2100000, guid: 290c66bf516580a43ad010b9ea60f7e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00152
+    second: {fileID: 2100000, guid: bfefb496b0c735341a79ec12002ba203, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00153
+    second: {fileID: 2100000, guid: c84a6879f8398ac4b8a8c5bd326003b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00154
+    second: {fileID: 2100000, guid: 653f2068a98de014d95572f0bd2507bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00159
+    second: {fileID: 2100000, guid: 688f36a582776d54b85b6f58336da5e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00163
+    second: {fileID: 2100000, guid: aeb2e7f3e59b78e4b9ba255ffde8a830, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00166
+    second: {fileID: 2100000, guid: a293055524fed7f4cb3a15736d8c1d36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00167
+    second: {fileID: 2100000, guid: 012d75e07a61eed49b08a965807de804, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00169
+    second: {fileID: 2100000, guid: 085f2861820fe2449837c6a511ecb814, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00170
+    second: {fileID: 2100000, guid: a0b72e13282ee794493ee98a46edef63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00171
+    second: {fileID: 2100000, guid: 09c5420e44159384aa5f3d3bbf665ed5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00172
+    second: {fileID: 2100000, guid: ce12450064e46e348b4d41c019f76c13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00176
+    second: {fileID: 2100000, guid: 8935487e1d177064cb367a0d4a01433f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00177
+    second: {fileID: 2100000, guid: e375616d7a2443046a447afe18b75b44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00178
+    second: {fileID: 2100000, guid: 2baaccddb7fee9644bcceac4dda1dfea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00179
+    second: {fileID: 2100000, guid: 264faddaf205989428ad7eca39c3a1c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00180
+    second: {fileID: 2100000, guid: d1ce8a1beacd25f4fa4cc227e7354bf2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00183
+    second: {fileID: 2100000, guid: 6975a964fd840fe4d90cb2cf1ed59b42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00184
+    second: {fileID: 2100000, guid: 7b254af8c61221b46a127463e25319d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00185
+    second: {fileID: 2100000, guid: 41540df5df57adf4daa5ba579f0ef765, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00187
+    second: {fileID: 2100000, guid: d3a2aceb0dfa4dc47ae89fc969dbd197, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00188
+    second: {fileID: 2100000, guid: f7d2ccb1c42c10a43b16d1447defac56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00189
+    second: {fileID: 2100000, guid: 2fd8372dc3a71c540bb990eb73b4f874, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00193
+    second: {fileID: 2100000, guid: 8e55cabdfdcf96041a0ff0dead8ce1bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00194
+    second: {fileID: 2100000, guid: da081a4fb9833f24ab58b748fea9a7c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00196
+    second: {fileID: 2100000, guid: a0242f789b94a2e4f8ca5aac3a4137ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00197
+    second: {fileID: 2100000, guid: 54984454558e623459b03438913e7aff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00198
+    second: {fileID: 2100000, guid: 039e5e83b3fb8dd47b45f6d24859d9d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00204
+    second: {fileID: 2100000, guid: cd98cdd895ad6004db7225ce9de4d28f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00205
+    second: {fileID: 2100000, guid: 1ec03061378f86d4b95af70e13802473, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00206
+    second: {fileID: 2100000, guid: 64a23d59ff88cdd4ca1681a65873fa56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingMat-00208
+    second: {fileID: 2100000, guid: f17742774ddcb4044941eb7e3c35843e, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00036-texture
+    second: {fileID: 2800000, guid: 2141db20c800f15478e72102df71dbb2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00044-texture
+    second: {fileID: 2800000, guid: f307f0e43984d0744a2fdc8e5244e95f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00045-texture
+    second: {fileID: 2800000, guid: e1dab9c4d615c514f968a436b6e0d2bc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00054-texture
+    second: {fileID: 2800000, guid: 88ac4e896dd62994d984f68f812afbbb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00055-texture
+    second: {fileID: 2800000, guid: 545243930c3041540b449f9d1f9df48f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00057-texture
+    second: {fileID: 2800000, guid: 3d0537e098a4bb94ba383bbbb304df4b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00058-texture
+    second: {fileID: 2800000, guid: 387d5fe20ef628443be3550238b11295, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00060-texture
+    second: {fileID: 2800000, guid: 6a28315ac6a13274394372cc15deeb3e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00061-texture
+    second: {fileID: 2800000, guid: 339ffb3bc52bcf64f9fb701308e02ff4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00062-texture
+    second: {fileID: 2800000, guid: c3a7cd1c6e00ae54c83d97394aed5ed5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00063-texture
+    second: {fileID: 2800000, guid: 4a647c66896f16340b9896b4493968fa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00065-texture
+    second: {fileID: 2800000, guid: 8d20a106a640f3b44b9d209eab6fcfd5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00066-texture
+    second: {fileID: 2800000, guid: ae7f3e87ec67db848b46ab5e8a75f97c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00067-texture
+    second: {fileID: 2800000, guid: f4abb8a1cf56fd04ca9ab605711b8000, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00070-texture
+    second: {fileID: 2800000, guid: 5a75a466a23308b43bf817a94bf2c0c8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00071-texture
+    second: {fileID: 2800000, guid: 7eac0ec3a5d4a034a83677a78e216fcf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00072-texture
+    second: {fileID: 2800000, guid: dacc61d2662be2a449431dd0d28ad7dd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00073-texture
+    second: {fileID: 2800000, guid: 820cf3ed3ba1dd34fb5bf3762eda0fad, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00075-texture
+    second: {fileID: 2800000, guid: d6f82569ee20ef54794362ebd8870530, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00076-texture
+    second: {fileID: 2800000, guid: 799354ca8daad2a4f9d62f0db98131ec, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00079-texture
+    second: {fileID: 2800000, guid: 78f9c30ded75dbe4a8d0bfdd7e9b6057, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00080-texture
+    second: {fileID: 2800000, guid: 82fb41518a6cbe14caba5a2d0eecc06b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00081-texture
+    second: {fileID: 2800000, guid: 86a817efc4993184bb84eaee913901c9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00084-texture
+    second: {fileID: 2800000, guid: 4d555cb3c1acb1140a8ebe31681670a9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00085-texture
+    second: {fileID: 2800000, guid: 2f9e6fc0dc1e1904b926b958b519e345, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00087-texture
+    second: {fileID: 2800000, guid: 6d0ad36a61be19243a1e886cf5e97182, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00088-texture
+    second: {fileID: 2800000, guid: c4aaad9448780b849a0190b1a1c19eeb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00090-texture
+    second: {fileID: 2800000, guid: 0dde35f69836e3d408837632fc24c61c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00091-texture
+    second: {fileID: 2800000, guid: 7f34c343dd8f0854ba943cc99dcdc187, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00094-texture
+    second: {fileID: 2800000, guid: e2f8f396f79b196479219ddebb9b120b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00095-texture
+    second: {fileID: 2800000, guid: 80689c93de8747b41985cf84dcf07a46, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00096-texture
+    second: {fileID: 2800000, guid: 3a25770a653277544896a5ee2847ef4d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00099-texture
+    second: {fileID: 2800000, guid: 5d52f4f88bfef0d4c82d0dfe2bd5401e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00100-texture
+    second: {fileID: 2800000, guid: 21e9b000733e3c842ba9d042c33dfe63, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00101-texture
+    second: {fileID: 2800000, guid: 5149dae9c08504340b41a63d873aae34, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00102-texture
+    second: {fileID: 2800000, guid: a32cec0ed5aaaeb49a3cd854efa43b77, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00103-texture
+    second: {fileID: 2800000, guid: 9bfaecdbd26780647a42285107cba8ab, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00104-texture
+    second: {fileID: 2800000, guid: 91eb043a74aaf3e4c910a86ca889053e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00106-texture
+    second: {fileID: 2800000, guid: ebe2f111e0e32104687b689d14bc53d8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00109-texture
+    second: {fileID: 2800000, guid: 10ddcfec5b87508488970b7af19b33e2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00110-texture
+    second: {fileID: 2800000, guid: 58c8382cbccfd48479a550b60286fdee, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00111-texture
+    second: {fileID: 2800000, guid: f3654377bd924004b9a96f538f130842, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00112-texture
+    second: {fileID: 2800000, guid: 8cd7007a87ff2bc43bb11584c516c88c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00113-texture
+    second: {fileID: 2800000, guid: b916d869e9af46d44984153145c46d81, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00114-texture
+    second: {fileID: 2800000, guid: 723561aa27a61974f833b2369b4fb660, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00115-texture
+    second: {fileID: 2800000, guid: 21762d5a299dff74caa81ebe798e70be, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00120-texture
+    second: {fileID: 2800000, guid: cadb131cd1f79754e8dc4ab8f4fd8b91, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00121-texture
+    second: {fileID: 2800000, guid: ffcc200d5ec904e48a4050b66f1fb73b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00122-texture
+    second: {fileID: 2800000, guid: e0e297ff26048944d90f77d71a3b098e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00124-texture
+    second: {fileID: 2800000, guid: 76c592f3927d156488a0984868e525ac, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00127-texture
+    second: {fileID: 2800000, guid: 8b2c6701951c2b441b3bc78e8a658a9c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00129-texture
+    second: {fileID: 2800000, guid: 47cb10f950f25544abdce95067d4833b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00131-texture
+    second: {fileID: 2800000, guid: 29e6bc15a7601ab48894314479432c89, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00132-texture
+    second: {fileID: 2800000, guid: dc5d92c67ffbe8d4c97886571c38e6a2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00133-texture
+    second: {fileID: 2800000, guid: 1b7296d9a27ea35499f227bce5826446, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00134-texture
+    second: {fileID: 2800000, guid: a1547f771aa09c64e93b82c940fc305a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00135-texture
+    second: {fileID: 2800000, guid: 7b68072a3dd24964397bd30d8c9cbe62, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00136-texture
+    second: {fileID: 2800000, guid: 8f82cd291538fb245906c986d55f6f45, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00138-texture
+    second: {fileID: 2800000, guid: b620131d65caf7546baa67267ad99519, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00140-texture
+    second: {fileID: 2800000, guid: 5aff59f8659611b4a88742e0f1481aae, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00142-texture
+    second: {fileID: 2800000, guid: 30b9e27c794f6944fbacb6d4d836e227, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00143-texture
+    second: {fileID: 2800000, guid: 3ea02c20b1c97314a841e0c409535388, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00144-texture
+    second: {fileID: 2800000, guid: 83f920f61a01fe546925f06145ae164b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00146-texture
+    second: {fileID: 2800000, guid: d8d3f5dccfa141049804d460198d930b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00147-texture
+    second: {fileID: 2800000, guid: 37dca65c53238c445b20f5533ae9b0bc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00151-texture
+    second: {fileID: 2800000, guid: 885940b83e11a7949961a08e4df42674, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00152-texture
+    second: {fileID: 2800000, guid: f66a39e7bb1c71c499c247e485ad0e3b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00153-texture
+    second: {fileID: 2800000, guid: 1edbba3f892f09046a9518b11ccc066d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00154-texture
+    second: {fileID: 2800000, guid: 5faa21a295b42514098d3ffa80f986dc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00159-texture
+    second: {fileID: 2800000, guid: 82e74ce40e5a3634ca374ef060e67345, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00163-texture
+    second: {fileID: 2800000, guid: 03c881754eec7094ebf49b24d7225d26, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00166-texture
+    second: {fileID: 2800000, guid: 84e8632d9778daf4f8492bab0bdcaa95, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00167-texture
+    second: {fileID: 2800000, guid: 9bf0089247883e34b979f04b23ad2d52, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00169-texture
+    second: {fileID: 2800000, guid: c01ab907eda825045ad5ae492e0a79e8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00170-texture
+    second: {fileID: 2800000, guid: 59d9a1d032e13a84f84ad89071289d32, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00171-texture
+    second: {fileID: 2800000, guid: e35396ae9d7718e4a9e373dcf13e8c47, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00172-texture
+    second: {fileID: 2800000, guid: b695ccebaa813ff42bde7c9719aa21ff, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00176-texture
+    second: {fileID: 2800000, guid: 822d6cf7d207276449429c8ea97041a3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00177-texture
+    second: {fileID: 2800000, guid: f23500b0b32ae8f4ab2917dc25bba162, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00178-texture
+    second: {fileID: 2800000, guid: 10b30a938229a4f4fbe9c6f2a88dbce9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00179-texture
+    second: {fileID: 2800000, guid: 5c0d912ba55a5164da61570ba4d2623d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00180-texture
+    second: {fileID: 2800000, guid: c232b7a50de12ad469991cd10cf36563, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00183-texture
+    second: {fileID: 2800000, guid: e1f89c8e51e8e32419656cff4269f70c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00184-texture
+    second: {fileID: 2800000, guid: c4bb8bacd1a0ac5468c7653fc8000809, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00185-texture
+    second: {fileID: 2800000, guid: 17d1f63d5d46eb645993e47dd8590177, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00187-texture
+    second: {fileID: 2800000, guid: 1aa2cc98c40144c4bbcab5b000c0c6b0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00188-texture
+    second: {fileID: 2800000, guid: ba797f9a1db0e2949b2e83bc41290e4e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00189-texture
+    second: {fileID: 2800000, guid: 05ba042b13079af4e9f41017aaa9ffc2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00193-texture
+    second: {fileID: 2800000, guid: e0ed560416e221a4b893c55dfe5f7279, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00194-texture
+    second: {fileID: 2800000, guid: 875185fd3bf3aed45ba31c0b92e3cc31, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00196-texture
+    second: {fileID: 2800000, guid: bac01f9b4df014948b94970a2131c635, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00197-texture
+    second: {fileID: 2800000, guid: bcc753071bbc9784591f3e0bf224625b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00198-texture
+    second: {fileID: 2800000, guid: 74937f28b6e85a344b32b1696e2e0843, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00204-texture
+    second: {fileID: 2800000, guid: 7df69f1cee37380449839a9915f8db64, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00205-texture
+    second: {fileID: 2800000, guid: ab62fe4527248924f88af3cf6ee68a21, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00206-texture
+    second: {fileID: 2800000, guid: 2412047bbc1009a49835813d7a44f4a8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ssps-00208-texture
+    second: {fileID: 2800000, guid: 3232bd9dc98bc9645bea0be9d48ddcfe, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

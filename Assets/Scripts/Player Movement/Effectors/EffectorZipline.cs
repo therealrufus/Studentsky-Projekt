@@ -44,10 +44,12 @@ public class EffectorZipline : PlayerEffector
 
     public override Vector3 ConstantMove()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(InputManager.Jump))
         {
             Invoke("UnSubscribe", 0.001f);
-            playerMovement.SPEED += Vector3.up * jumpForce;
+            playerMovement.SPEED = playerMovement.head.forward * playerMovement.SPEED.magnitude;
+            if (playerMovement.SPEED.y <= 0) playerMovement.SPEED.y = jumpForce;
+            else playerMovement.SPEED.y += jumpForce;
             hooked = false;
             return Vector3.zero;
         }
@@ -61,7 +63,7 @@ public class EffectorZipline : PlayerEffector
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey(KeyCode.E) && !hooked)
+        if (Input.GetKey(InputManager.Action) && !hooked)
         {
 
             if (GetPlayer(other.gameObject))
@@ -69,8 +71,11 @@ public class EffectorZipline : PlayerEffector
                 Subscribe();
 
                 Vector3 speed = Vector3.Project(playerMovement.SPEED, normal);
+                speed = speed.normalized * new Vector3(playerMovement.SPEED.x, 0, playerMovement.SPEED.z).magnitude;
+
                 if (speed.sqrMagnitude < speedBonus * speedBonus)
                     speed += speed.normalized * speedBonus;
+
                 playerMovement.SPEED = speed;
                 hooked = true;
             }

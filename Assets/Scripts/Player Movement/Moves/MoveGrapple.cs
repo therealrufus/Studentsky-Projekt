@@ -24,6 +24,7 @@ public class MoveGrapple : PlayerMoveOption
     [Space]
     [Tooltip("how far can the player deviate from the grapple point")]
     [SerializeField] float maxAngle = 10f;
+    [SerializeField] Vector2 inputMultiplier;
 
 
     [HideInInspector] public Vector3 impactPoint;
@@ -44,7 +45,7 @@ public class MoveGrapple : PlayerMoveOption
 
     public override bool ShouldStart()
     {
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(InputManager.AbPrimary))
         {
             if (realCooldown <= 0)
             {
@@ -77,7 +78,7 @@ public class MoveGrapple : PlayerMoveOption
             realCooldown = cooldown;
             return false;
         }
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(InputManager.Crouch))
         {
             realCooldown = cooldown;
             return false;
@@ -107,6 +108,7 @@ public class MoveGrapple : PlayerMoveOption
     Vector3 Rotate()
     {
         Vector3 input = master.rawArrowInput;
+        input = new Vector3(input.x * inputMultiplier.x, 0, input.z * inputMultiplier.y);
 
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
 

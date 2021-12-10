@@ -25,11 +25,13 @@ public class MoveDoubleJump : PlayerMoveOption
         moveKick.OnJump.AddListener(ResetJump);
     }
 
+
+
     public override bool ShouldStart()
     {
         if (!master.grounded && master.groundedForFrames > 5)
         {
-            if (canJump && Input.GetKeyDown(KeyCode.Space))
+            if (canJump && Input.GetKeyDown(InputManager.Jump))
             {
                 return true;
             }

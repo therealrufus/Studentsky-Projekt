@@ -22,7 +22,7 @@ public class MoveKick : PlayerMoveOption
 
     public override bool ShouldStart()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(InputManager.AbSecondary))
         {
             return true;
         }
@@ -50,17 +50,22 @@ public class MoveKick : PlayerMoveOption
 
         if (Physics.Raycast(master.head.position, master.head.forward, out ray, realDistance, ~IgnoreMask))
         {
-            shouldContinue = false;
-
-            float force = master.SPEED.magnitude + addForce;
-            if (force < minForce) force = minForce;
-
-            master.SPEED = direction * -1 * force;
-
-            OnJump.Invoke();
+            Hit();
         }
 
         if (realDistance >= distance) shouldContinue = false;
+    }
+
+    void Hit()
+    {
+        shouldContinue = false;
+
+        float force = master.SPEED.magnitude + addForce;
+        if (force < minForce) force = minForce;
+
+        master.SPEED = direction * -1 * force;
+
+        OnJump.Invoke();
     }
 
     public override bool ShouldContinue()
