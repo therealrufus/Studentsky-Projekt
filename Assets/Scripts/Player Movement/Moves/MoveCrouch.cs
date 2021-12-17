@@ -88,6 +88,8 @@ public class MoveCrouch : PlayerMoveOption
             Vector3 optionTwo = optionOne.normalized * master.SPEED.magnitude;
             //tohle bych asi mel okomentovat
             master.SPEED = Vector3.Lerp(optionOne, optionTwo, boostForce);
+
+            if (master.grounded && master.groundedForFrames <= 1 && collisionForce.magnitude > 25f) OnLand.Invoke();
         }
     }
 

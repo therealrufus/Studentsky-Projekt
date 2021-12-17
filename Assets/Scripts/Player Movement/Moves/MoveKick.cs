@@ -6,12 +6,12 @@ public class MoveKick : PlayerMoveOption
 {
     [Space(20)]
 
-    [SerializeField] LayerMask IgnoreMask;
-    public float distance;
-    public float time;
-    public float delay;
-    [SerializeField] float minForce;
-    [SerializeField] float addForce;
+    [SerializeField, Tooltip("layers to ignore when raycasting (player)")] LayerMask IgnoreMask;
+    [Tooltip("max reach of the kick")] public float distance;
+    [Tooltip("duration of the kick")] public float time;
+    [Tooltip("delay of the kick")] public float delay;
+    [SerializeField, Tooltip("minimal force to add to the player")] float minForce;
+    [SerializeField, Tooltip("force added to the player (unnessesery)")] float addForce;
 
     RaycastHit ray;
 

@@ -24,7 +24,7 @@ public class MoveGrapple : PlayerMoveOption
     [Space]
     [Tooltip("how far can the player deviate from the grapple point")]
     [SerializeField] float maxAngle = 10f;
-    [SerializeField] Vector2 inputMultiplier;
+    [SerializeField, Tooltip("how much should each input axis modify the angle")] Vector2 inputMultiplier;
 
 
     [HideInInspector] public Vector3 impactPoint;
@@ -32,6 +32,9 @@ public class MoveGrapple : PlayerMoveOption
     Vector3 anglePos;
     RaycastHit ray;
     float realCooldown = -1;
+
+    public Vector3 dir;
+    public Vector3 camDir;
 
     public Vector3 direction
     {
@@ -108,7 +111,7 @@ public class MoveGrapple : PlayerMoveOption
     Vector3 Rotate()
     {
         Vector3 input = master.rawArrowInput;
-        input = new Vector3(input.x * inputMultiplier.x, 0, input.z * inputMultiplier.y);
+        input = new Vector3(input.x * inputMultiplier.x, 0, CameraInput() * inputMultiplier.y);
 
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
 
@@ -116,18 +119,22 @@ public class MoveGrapple : PlayerMoveOption
 
         grappleInput += Vector3.right * input.x;
         grappleInput += Vector3.up * input.z;
-        grappleInput = grappleInput.normalized * maxAngle;
+        grappleInput = grappleInput* maxAngle;
 
         return (rotation * grappleInput) + impactPoint;
     }
 
     //not working
-    Vector2 CameraInput()
+    float CameraInput()
     {
         Vector3 cameraDirection = master.head.forward;
-        //Vector3 direction = (impactPoint - transform.position).normalized;
 
-        return Vector3.zero;
+        Vector3 vector = direction;
+        vector.y = cameraDirection.y;
+
+        float angle = (vector.normalized.y - direction.normalized.y);
+
+        return angle;
     }
 
     void Impact(Vector3 normal)
@@ -155,5 +162,21 @@ public class MoveGrapple : PlayerMoveOption
         Gizmos.DrawSphere(impactPoint, 0.4f);
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(anglePos, 0.2f);
+
+        /*Vector3 offset = Vector3.up * 10;
+        //Vector3 camDir = new Vector3(1, 1, 0.5f).normalized;
+        //Vector3 dir = new Vector3(1, 0.5f, 0f).normalized;
+
+        Vector3 h = dir;
+        h.y = camDir.y;
+        Gizmos.DrawRay(offset, camDir*10);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(offset, dir*10);
+        Gizmos.color = Color.black;
+        Gizmos.DrawRay(offset, h*10);
+
+        float angle = (h.normalized.y - dir.normalized.y) / 2;
+
+        Debug.Log(angle);*/
     }
 }

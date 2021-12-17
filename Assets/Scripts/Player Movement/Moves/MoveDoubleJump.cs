@@ -5,12 +5,12 @@ using UnityEngine;
 public class MoveDoubleJump : PlayerMoveOption
 {
     [Space(20)]
-    [SerializeField] float JumpForce;
+    [SerializeField, Tooltip("the force of the jump")] float JumpForce;
 
     [Space]
-    [SerializeField] MoveWallride moveWallride;
-    [SerializeField] MoveGrapple moveGrapple;
-    [SerializeField] MoveKick moveKick;
+    [SerializeField, Tooltip("when to recharge the double jump")] MoveWallride moveWallride;
+    [SerializeField, Tooltip("when to recharge the double jump")] MoveGrapple moveGrapple;
+    [SerializeField, Tooltip("when to recharge the double jump")] MoveKick moveKick;
     bool canJump;
 
     private void Update()
@@ -20,9 +20,9 @@ public class MoveDoubleJump : PlayerMoveOption
 
     public override void Inicialize()
     {
-        moveWallride.OnEnd.AddListener(ResetJump);
-        moveGrapple.OnEnd.AddListener(ResetJump);
-        moveKick.OnJump.AddListener(ResetJump);
+        moveWallride?.OnEnd.AddListener(ResetJump);
+        moveGrapple?.OnEnd.AddListener(ResetJump);
+        moveKick?.OnJump.AddListener(ResetJump);
     }
 
 

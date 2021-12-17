@@ -54,10 +54,10 @@ public class PlayerMoveOption : MonoBehaviour
         {
             collisionForce = Vector3.Project(master.SPEED, lastNormal);
             master.SPEED -= collisionForce;
-        }
 
-        //fuj
-        if (master.grounded && master.groundedForFrames <= 1 && collisionForce.magnitude > 25f) OnLand.Invoke();
+            //fuj
+            if (master.grounded && master.groundedForFrames <= 1 && collisionForce.magnitude > 25f) OnLand.Invoke();
+        }
     }
 
     public virtual bool ShouldStart()
