@@ -33,9 +33,6 @@ public class MoveGrapple : PlayerMoveOption
     RaycastHit ray;
     float realCooldown = -1;
 
-    public Vector3 dir;
-    public Vector3 camDir;
-
     public Vector3 direction
     {
         get { return (impactPoint - transform.position).normalized; }
