@@ -8194,6 +8194,14 @@ PrefabInstance:
       propertyPath: camHolder
       value: 
       objectReference: {fileID: 1991326090}
+    - target: {fileID: 653539349715656192, guid: 092a68242b3fd2d47b954a31ad28cfe1, type: 3}
+      propertyPath: maxAngle
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 653539349715656192, guid: 092a68242b3fd2d47b954a31ad28cfe1, type: 3}
+      propertyPath: inputMultiplier.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 653539349715656202, guid: 092a68242b3fd2d47b954a31ad28cfe1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -386.8
