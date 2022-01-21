@@ -17,7 +17,7 @@ public class AnimCrouch : PlayerEffect
         crouchMove.OnBegin.AddListener(Crouch);
         crouchMove.OnEnd.AddListener(UnCrouch);
 
-        target = SpawnHolder(master.cam.transform);
+        target = SpawnHolder(master.camHolder.transform);
     }
 
     void Crouch()

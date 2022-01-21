@@ -2,9 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections.Generic;
+//ONLY WITH MULTIPLAYER!!
+using Photon.Pun;
 
+//no multiplayer (RECOMMENDED!!!) : public class PlayerMovement : MonoBehaviour
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviourPunCallbacks
 {
     public Transform head;
     [Range(0, 1)]
@@ -13,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Space]
     public PlayerMoveOption[] moves;
-    int currentMove;
-    bool hasDuration;
+    protected int currentMove;
+    protected bool hasDuration;
 
     public PlayerMoveOption currentMoveOption
     {
@@ -50,6 +53,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        StartMovement();
+    }
+
+    protected virtual void StartMovement()
+    {
         controller = GetComponent<CharacterController>();
 
         foreach (var move in moves)
@@ -60,6 +68,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
+    {
+        UpdateMovement();
+    }
+
+    private void LateUpdate()
+    {
+        lastFrameSpeed = SPEED;
+    }
+
+    protected virtual void UpdateMovement()
     {
         GetMovementInput();
 
@@ -84,11 +102,6 @@ public class PlayerMovement : MonoBehaviour
         if (typeText != null) typeText.text = currentMoveOption.ToString();
 
         groundedForFrames++;
-    }
-
-    private void LateUpdate()
-    {
-        lastFrameSpeed = SPEED;
     }
 
     void GetMovementInput()

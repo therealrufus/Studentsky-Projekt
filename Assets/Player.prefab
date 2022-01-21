@@ -366,6 +366,7 @@ MonoBehaviour:
   player: {fileID: 653539349715656202}
   playerMovement: {fileID: 653539349715656205}
   cam: {fileID: 653539348025379333}
+  camHolder: {fileID: 653539348376085593}
   handLeft: {fileID: 653539348022217348}
   handRight: {fileID: 653539348048677334}
   EasingSpeed: 0.1
@@ -469,6 +470,7 @@ MonoBehaviour:
   master: {fileID: 653539348532305247}
   grapple: {fileID: 653539349715656192}
   line: {fileID: 653539349622416926}
+  maxAngle: 0
 --- !u!114 &653539348532305235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,6 +1002,7 @@ MonoBehaviour:
   speedCap: 45
   initialBoost: 0.1
   maxAngle: 15
+  inputMultiplier: {x: 1, y: 0}
   impactPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &3363701942879679708
 MonoBehaviour:

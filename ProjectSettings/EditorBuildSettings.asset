@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: c892a6bf2f9c54e4280027e4ba5defc2
+  - enabled: 1
+    path: Assets/PUN-Test/Lobby.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/PUN-Test/Room.unity
+    guid: 9d5d9a0654d98c04eb36a1e56432d1ce
   m_configObjects: {}
