@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public float mouseSensitivity;
     public Transform cam;
 
     float yRotation = 0f;
@@ -14,7 +13,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
-        Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * mouseSensitivity * Time.deltaTime;
+        Vector2 mouseInput = InputManager.GetMouseInput() * Time.deltaTime;
 
         yRotation -= mouseInput.y;
         yRotation = Mathf.Clamp(yRotation, -90f, 90f);
