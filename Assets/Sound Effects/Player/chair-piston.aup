@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="chair-piston_data" version="1.3.0" audacityversion="2.3.2" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="615.0421142578" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="chair-piston" channel="0" linked="1" mute="0" solo="0" height="183" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="13182">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808fc6.au" len="13182" min="-1.014889" max="1.07094" rms="0.151756"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="chair-piston" channel="1" linked="0" mute="0" solo="0" height="117" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="13182">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808941.au" len="13182" min="-1.014889" max="1.07094" rms="0.151756"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="chair-piston" channel="0" linked="1" mute="0" solo="0" height="154" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00405896" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2259">
+				<waveblock start="0">
+					<simpleblockfile filename="e080880e.au" len="2259" min="-1.014889" max="1.07094" rms="0.362199"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="chair-piston" channel="1" linked="0" mute="0" solo="0" height="146" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00405896" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2259">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808c0c.au" len="2259" min="-1.014889" max="1.07094" rms="0.362199"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
