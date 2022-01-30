@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98c6fb6ee63ce0d4cbb99caa16a7586e, type: 3}
-  m_Name: impact sound
+  m_Name: jump
   m_EditorClassIdentifier: 
   type: 0
   clips:
-  - {fileID: 8300000, guid: 754ab59b5b9a477458e4d13d1ab16d9f, type: 3}
-  pitch: {x: 0.5, y: 1.5}
+  - {fileID: 8300000, guid: 8563acd582bb7de498e4e3b6fe506238, type: 3}
+  pitch: {x: 0.8, y: 1.2}
   volume: {x: 1, y: 1}
   loop: 0

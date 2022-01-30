@@ -10,6 +10,9 @@ public class AnimHeadbump : PlayerEffect
     [SerializeField] float headBumpSpeed;
     Transform target;
     Coroutine coroutine = null;
+    [Header("sfx")]
+    [SerializeField] SoundEffect jumpSFX;
+    [SerializeField] SoundEffect impactSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,7 @@ public class AnimHeadbump : PlayerEffect
         headBumpForce = Mathf.Abs(headBumpForce);
         if (coroutine != null) StopCoroutine(coroutine);
         coroutine = StartCoroutine("JumpAnimation");
+        SoundManager.Play(jumpSFX);
     }
 
     void AnimateLanding()
@@ -34,6 +38,7 @@ public class AnimHeadbump : PlayerEffect
         headBumpForce = -1 * Mathf.Abs(headBumpForce);
         if(coroutine != null) StopCoroutine(coroutine);
         coroutine = StartCoroutine("JumpAnimation");
+        SoundManager.Play(impactSFX);
     }
 
     IEnumerator JumpAnimation()

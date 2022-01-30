@@ -76,7 +76,11 @@ public class MoveWallride : PlayerMoveOption
 
         master.SPEED -= normal * stickToSurfaceForce * Time.deltaTime;
 
-        if (Input.GetKeyDown(InputManager.Jump)) Jump();
+        if (Input.GetKeyDown(InputManager.Jump))
+        { 
+            Jump();
+            OnJump.Invoke();
+        }
         Fall();
     }
 

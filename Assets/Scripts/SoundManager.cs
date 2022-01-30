@@ -8,8 +8,8 @@ public class SoundManager : MonoBehaviour
     public static SoundManager LocalInstance;
     public List<AudioMixerGroup> mixers;
 
-    List<AudioSource> Pool;
-    List<AudioSource> InUse;
+    public List<AudioSource> Pool;
+    public List<AudioSource> InUse;
     [SerializeField] int poolNumber = 10;
 
     private void Awake()
@@ -25,14 +25,17 @@ public class SoundManager : MonoBehaviour
 
     void Inicialize()
     {
-        Pool = new List<AudioSource>(poolNumber);
+        Pool = new List<AudioSource>();
 
         for (int i = 0; i < poolNumber; i++)
         {
             GameObject audioHolder = new GameObject("Pool num: " + i);
             audioHolder.transform.parent = transform;
-            Pool[i] = audioHolder.AddComponent<AudioSource>();
-            Pool[i].playOnAwake = false;
+            AudioSource source = audioHolder.AddComponent<AudioSource>();
+            source.playOnAwake = false;
+            source.spatialBlend = 0;
+
+            Pool.Add(source);
         }
     }
 

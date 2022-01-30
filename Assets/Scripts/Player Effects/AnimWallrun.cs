@@ -14,6 +14,8 @@ public class AnimWallrun : PlayerEffect
 
     [SerializeField] Vector3 handOffset;
 
+    [SerializeField] SoundEffect jumpSFX;
+
     float finalAngle;
 
     private void Start()
@@ -21,6 +23,7 @@ public class AnimWallrun : PlayerEffect
         wallride.OnBegin.AddListener(RotateCam);
         wallride.OnEnd.AddListener(ResetCam);
         wallride.OnMove.AddListener(AnimateHand);
+        wallride.OnJump.AddListener(OnJump);
         target = SpawnHolder(master.cam.transform);
     }
 
@@ -50,6 +53,11 @@ public class AnimWallrun : PlayerEffect
 
         Debug.DrawRay(wallride.transform.position, lookVector, Color.black);
 
+    }
+
+    void OnJump()
+    {
+        SoundManager.Play(jumpSFX);
     }
 
     float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 up)
