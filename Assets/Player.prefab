@@ -302,12 +302,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653539348376085592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6899996, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 653539348025379334}
-  m_Father: {fileID: 653539349715656202}
+  m_Father: {fileID: 6927815741744777755}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653539348532305244
@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 653539348532305235}
   - component: {fileID: 653539348532305236}
   - component: {fileID: 653539348117969398}
+  - component: {fileID: 6927815742737547167}
   m_Layer: 3
   m_Name: Player Animations
   m_TagString: Untagged
@@ -387,6 +388,7 @@ MonoBehaviour:
   angle: 7
   time: 0.2
   handOffset: {x: 0.2, y: 0.65, z: -0.3}
+  jumpSFX: {fileID: 11400000, guid: 3291961f20f51404a9b250137145f0e8, type: 2}
 --- !u!114 &653539348532305232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +441,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   headBumpForce: 5
   headBumpSpeed: 2
+  jumpSFX: {fileID: 11400000, guid: 3291961f20f51404a9b250137145f0e8, type: 2}
+  impactSFX: {fileID: 11400000, guid: baab0474545eaa241ad0cd303f2672b5, type: 2}
 --- !u!114 &653539348532305233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,6 +526,22 @@ MonoBehaviour:
   master: {fileID: 653539348532305247}
   moveKick: {fileID: 3363701942879679708}
   handPosAnticipation: 0.25
+--- !u!114 &6927815742737547167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653539348532305244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fccab3549037e94a9225b7a3d2f5f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 653539348532305247}
+  move: {fileID: 653539349715656204}
+  effect: {fileID: 11400000, guid: b2a95b03edb628342a0bfdacba3991de, type: 2}
+  multiplier: 0.1
 --- !u!1 &653539349622416924
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,10 +706,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653539349715656214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1, y: 1.92, z: 33.6}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 653539348376085593}
+  - {fileID: 6927815741744777755}
   - {fileID: 653539348532305245}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -773,7 +793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc38182228b0ad4d9d18898771734c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 400
   cam: {fileID: 653539348376085593}
 --- !u!114 &653539349715656205
 MonoBehaviour:
@@ -993,7 +1012,7 @@ MonoBehaviour:
   cooldown: 0
   IgnoreMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 12
   fallSpeedMultiplier: 0.5
   stopLookAngle: 0.35
   maxDistance: 1000
@@ -1125,3 +1144,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6927815741744777754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6927815741744777755}
+  m_Layer: 3
+  m_Name: camera offset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6927815741744777755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6927815741744777754}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6899996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 653539348376085593}
+  m_Father: {fileID: 653539349715656202}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
