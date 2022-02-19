@@ -84,7 +84,6 @@ public class MoveGrapple : PlayerMoveOption
             return false;
         }
 
-
         return true;
     }
 
