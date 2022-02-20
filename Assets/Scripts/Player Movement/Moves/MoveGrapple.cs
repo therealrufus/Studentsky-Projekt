@@ -84,7 +84,6 @@ public class MoveGrapple : PlayerMoveOption
             return false;
         }
 
-
         return true;
     }
 
@@ -99,7 +98,18 @@ public class MoveGrapple : PlayerMoveOption
 
         Vector3 speed = master.SPEED;
         speed += force;
-        speed = Vector3.ClampMagnitude(speed, Mathf.Max(speedCap, master.SPEED.magnitude));
+
+        //experimental
+        Vector3 speedTowardsTarget = Vector3.Project(speed, direction);
+        float startMagnitude = speedTowardsTarget.magnitude;
+
+        speedTowardsTarget = Vector3.ClampMagnitude(speedTowardsTarget, speedCap);
+
+        float endMagnitude = speedTowardsTarget.magnitude;
+        float magnitudeSubstract = startMagnitude - endMagnitude;
+        speed = speed.normalized * (speed.magnitude - magnitudeSubstract);
+
+        //speed = Vector3.ClampMagnitude(speed, Mathf.Max(speedCap, master.SPEED.magnitude));
         master.SPEED = speed;
 
         Fall();
@@ -116,7 +126,7 @@ public class MoveGrapple : PlayerMoveOption
 
         grappleInput += Vector3.right * input.x;
         grappleInput += Vector3.up * input.z;
-        grappleInput = grappleInput* maxAngle;
+        grappleInput = grappleInput * maxAngle;
 
         return (rotation * grappleInput) + impactPoint;
     }
@@ -155,25 +165,46 @@ public class MoveGrapple : PlayerMoveOption
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.white;
+        /*Gizmos.color = Color.white;
         Gizmos.DrawSphere(impactPoint, 0.4f);
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(anglePos, 0.2f);
+        Gizmos.DrawSphere(anglePos, 0.2f);*/
 
-        /*Vector3 offset = Vector3.up * 10;
-        //Vector3 camDir = new Vector3(1, 1, 0.5f).normalized;
-        //Vector3 dir = new Vector3(1, 0.5f, 0f).normalized;
+        Vector3 offset = Vector3.up * 10;
+        Vector3 speed = new Vector3(0f, 1f, 0f).normalized * 3;
+        Vector3 normal = new Vector3(0.2f, 1f, 0f).normalized;
 
-        Vector3 h = dir;
-        h.y = camDir.y;
-        Gizmos.DrawRay(offset, camDir*10);
         Gizmos.color = Color.blue;
-        Gizmos.DrawRay(offset, dir*10);
+        Gizmos.DrawRay(offset, normal * 2);
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(offset, speed * 2);
+
+        Vector3 speedTowardsNormal = Vector3.Project(speed, normal);
+        float magnitude1 = speedTowardsNormal.magnitude;
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawRay(offset, speedTowardsNormal * 2);
+
+        float clamp = 1f;
+
+        Vector3 finalSpeed = Vector3.ClampMagnitude(speedTowardsNormal, clamp);
+
+        float magnitude2 = finalSpeed.magnitude;
+        float pomer = magnitude1 - magnitude2;
+
+        Gizmos.color = Color.gray;
+        Gizmos.DrawRay(offset, finalSpeed * 2);
+
+        finalSpeed = speed.normalized * (speed.magnitude - pomer);
+
         Gizmos.color = Color.black;
-        Gizmos.DrawRay(offset, h*10);
+        Gizmos.DrawRay(offset, finalSpeed * 2);
 
-        float angle = (h.normalized.y - dir.normalized.y) / 2;
+        Vector3 normalSpeed = Vector3.ClampMagnitude(speed, clamp);
 
-        Debug.Log(angle);*/
+        Gizmos.color = Color.white;
+        Gizmos.DrawRay(offset + new Vector3(0.1f, 0f, 0.1f), normalSpeed * 2);
+
+
     }
 }
