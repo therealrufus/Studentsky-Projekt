@@ -9374,10 +9374,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f0439b3e31aad0043b54c21f5e5b1fd7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: de06770a699114f4bb76014cf414bbc5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.2
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -11870,6 +11870,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 653539348532305232, guid: 092a68242b3fd2d47b954a31ad28cfe1, type: 3}
+      propertyPath: jumpSFX
+      value: 
+      objectReference: {fileID: 11400000, guid: d54553974bb21cf4cacd7f0ffc28b3c6, type: 2}
+    - target: {fileID: 653539348532305246, guid: 092a68242b3fd2d47b954a31ad28cfe1, type: 3}
+      propertyPath: jumpSFX
+      value: 
+      objectReference: {fileID: 11400000, guid: d54553974bb21cf4cacd7f0ffc28b3c6, type: 2}
     - target: {fileID: 653539349715656192, guid: 092a68242b3fd2d47b954a31ad28cfe1, type: 3}
       propertyPath: speedCap
       value: 40
@@ -11934,6 +11942,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6927815742737547167, guid: 092a68242b3fd2d47b954a31ad28cfe1, type: 3}
+      propertyPath: effect
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f4825f9a5893464e8c3bebe2c71136c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 092a68242b3fd2d47b954a31ad28cfe1, type: 3}
 --- !u!4 &7246337709005081216 stripped
