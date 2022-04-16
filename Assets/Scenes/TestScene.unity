@@ -424,10 +424,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2045804405}
   objectives: []
+  minDistance: 10
+  curveSteepness: 150
+  curveStartTime: 30
+  text: {fileID: 494047435}
   onNewObjective:
     m_PersistentCalls:
       m_Calls: []
-  minDistance: 10
 --- !u!114 &46512046
 MonoBehaviour:
   m_ObjectHideFlags: 0
