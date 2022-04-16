@@ -15,8 +15,6 @@ public class BuildingCreatorEditor : Editor
 			generator.Generate();
 		}
 
-		if (generator.autoUpdate) generator.Clamp();
-
 		DrawDefaultInspector();
 	}
 }
