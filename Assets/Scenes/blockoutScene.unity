@@ -5857,10 +5857,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 126079093}
   objectives: []
+  minDistance: 10
+  curveSteepness: 150
+  curveStartTime: 30
+  text: {fileID: 0}
   onNewObjective:
     m_PersistentCalls:
       m_Calls: []
-  minDistance: 10
 --- !u!4 &815271484
 Transform:
   m_ObjectHideFlags: 0
@@ -8588,7 +8591,7 @@ PrefabInstance:
     - target: {fileID: 6126412330555920736, guid: 8aec52ab93d99b54abee542ca65942e1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9449788d4a3e0b146b7435378483e9ef, type: 2}
+      objectReference: {fileID: 2100000, guid: 38bb08ab48c12d14cad6a8e0676c1141, type: 2}
     - target: {fileID: 6148596154634031546, guid: 8aec52ab93d99b54abee542ca65942e1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
