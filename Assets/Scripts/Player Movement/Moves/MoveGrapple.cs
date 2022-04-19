@@ -3,7 +3,7 @@ using UnityEngine;
 public class MoveGrapple : PlayerMoveOption
 {
     [Space(20)]
-    [SerializeField] float cooldown;
+    public float cooldown;
     [SerializeField] LayerMask IgnoreMask;
     [Tooltip("how much should the player be affected by falling")]
     [Range(0f, 1f)]
@@ -31,7 +31,7 @@ public class MoveGrapple : PlayerMoveOption
     Vector3 grappleInput;
     Vector3 anglePos;
     RaycastHit ray;
-    float realCooldown = -1;
+    [HideInInspector]public float realCooldown = -1;
 
     public Vector3 direction
     {

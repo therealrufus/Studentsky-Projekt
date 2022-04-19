@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ObjectiveManager : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class ObjectiveManager : MonoBehaviour
         {
             GameOver();
         }
-        text.text = Mathf.Round(timer).ToString();
+        if(text != null) text.text = timer.ToString();
     }
 
     void AssignNewObjective()
@@ -80,6 +81,6 @@ public class ObjectiveManager : MonoBehaviour
 
     void GameOver()
     {
-
+        SceneManager.LoadScene(0);
     }
 }

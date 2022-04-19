@@ -388,7 +388,7 @@ MonoBehaviour:
   angle: 7
   time: 0.2
   handOffset: {x: 0.2, y: 0.65, z: -0.3}
-  jumpSFX: {fileID: 11400000, guid: 3291961f20f51404a9b250137145f0e8, type: 2}
+  jumpSFX: {fileID: 11400000, guid: d54553974bb21cf4cacd7f0ffc28b3c6, type: 2}
 --- !u!114 &653539348532305232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +441,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   headBumpForce: 5
   headBumpSpeed: 2
-  jumpSFX: {fileID: 11400000, guid: 3291961f20f51404a9b250137145f0e8, type: 2}
+  jumpSFX: {fileID: 11400000, guid: d54553974bb21cf4cacd7f0ffc28b3c6, type: 2}
   impactSFX: {fileID: 11400000, guid: baab0474545eaa241ad0cd303f2672b5, type: 2}
 --- !u!114 &653539348532305233
 MonoBehaviour:
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   master: {fileID: 653539348532305247}
   move: {fileID: 653539349715656204}
-  effect: {fileID: 11400000, guid: b2a95b03edb628342a0bfdacba3991de, type: 2}
+  effect: {fileID: 11400000, guid: 4f4825f9a5893464e8c3bebe2c71136c, type: 2}
   multiplier: 0.1
 --- !u!1 &653539349622416924
 GameObject:
@@ -691,6 +691,7 @@ GameObject:
   - component: {fileID: 653539349715656193}
   - component: {fileID: 653539349715656192}
   - component: {fileID: 3363701942879679708}
+  - component: {fileID: 6927815742083695540}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1014,11 +1015,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 12
   fallSpeedMultiplier: 0.5
-  stopLookAngle: 0.35
+  stopLookAngle: 0.5
   maxDistance: 1000
   stopDistance: 5
-  acceleration: 75
-  speedCap: 45
+  acceleration: 120
+  speedCap: 40
   initialBoost: 0.1
   maxAngle: 15
   inputMultiplier: {x: 1, y: 0}
@@ -1063,6 +1064,22 @@ MonoBehaviour:
   addForce: 5
   realDistance: 0
   delayTime: 0
+--- !u!114 &6927815742083695540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653539349715656214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc43e6554bade214aa83524d8f7d8b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 653539349715656205}
+  camera: {fileID: 653539348025379334}
+  prefab: {fileID: 5509386143233853137, guid: e4c83c10eea792b46840279c5f2882aa, type: 3}
+  force: 2000
 --- !u!1 &653539349746529791
 GameObject:
   m_ObjectHideFlags: 0

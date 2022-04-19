@@ -7,7 +7,7 @@ using Photon.Pun;
 
 //no multiplayer (RECOMMENDED!!!) : public class PlayerMovement : MonoBehaviour
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviourPunCallbacks
+public class PlayerMovement : MonoBehaviour
 {
     public Transform head;
     [Range(0, 1)]

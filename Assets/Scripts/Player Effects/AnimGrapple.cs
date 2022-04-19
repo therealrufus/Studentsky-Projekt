@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class AnimGrapple : PlayerEffect
 {
     [SerializeField] MoveGrapple grapple;
     [SerializeField] LineRenderer line;
+    [SerializeField] Image img;
 
     Coroutine grapplingCoroutine;
     Transform target;
 
     [SerializeField] float maxAngle;
+
+    void Update()
+    {
+        img.fillAmount = 1 - grapple.realCooldown / grapple.cooldown;
+    }
 
     void Start()
     {
@@ -26,7 +33,7 @@ public class AnimGrapple : PlayerEffect
     {
         grapplingCoroutine = StartCoroutine("Grappling");
     }
-    void StopGrappling() 
+    void StopGrappling()
     {
         StopCoroutine(grapplingCoroutine);
         line.enabled = false;

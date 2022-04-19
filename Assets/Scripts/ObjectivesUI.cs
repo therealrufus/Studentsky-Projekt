@@ -46,5 +46,7 @@ public class ObjectivesUI : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
         img.transform.position = pos;
+
+
     }
 }
