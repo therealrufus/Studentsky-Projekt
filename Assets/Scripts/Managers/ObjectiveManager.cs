@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 public class ObjectiveManager : MonoBehaviour
 {
@@ -16,7 +15,7 @@ public class ObjectiveManager : MonoBehaviour
     public float curveSteepness = 150;
     public float curveStartTime = 30;
     float timer;
-    int score;
+    [HideInInspector] public int score;
     public Text text;
 
     [HideInInspector] public UnityEvent onNewObjective;
@@ -28,6 +27,8 @@ public class ObjectiveManager : MonoBehaviour
     }
 
     Objective _currentObjective;
+
+    [HideInInspector] public UnityEvent onGameOver;
 
     // Start is called before the first frame update
     void Awake()
@@ -46,6 +47,7 @@ public class ObjectiveManager : MonoBehaviour
         {
             GameOver();
         }
+
         if(text != null) text.text = timer.ToString();
     }
 
@@ -81,6 +83,6 @@ public class ObjectiveManager : MonoBehaviour
 
     void GameOver()
     {
-        SceneManager.LoadScene(0);
+        onGameOver?.Invoke();
     }
 }

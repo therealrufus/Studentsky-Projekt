@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ThrowPizza : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ThrowPizza : MonoBehaviour
     public Transform camera;
     public GameObject prefab;
     public float force;
+    public UnityEvent OnThrow;
 
     private void Update()
     {
@@ -21,5 +23,7 @@ public class ThrowPizza : MonoBehaviour
     {
         GameObject pizza = Instantiate(prefab, transform.position, transform.rotation);
         pizza.GetComponent<Rigidbody>().AddForce(movement.SPEED + camera.forward * force);
+
+        OnThrow?.Invoke();
     }
 }

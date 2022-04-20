@@ -6,7 +6,7 @@ public class SettingsManager : MonoBehaviour
 {
     public Camera playerCam;
     Vector2 minmaxFOV = new Vector2(70, 150);
-    Vector2 minmaxSensitivity = new Vector2(100, 800);
+    public Vector2 minmaxSensitivity = new Vector2(100, 800);
 
     private void Start()
     {

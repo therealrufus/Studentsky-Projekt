@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ObjectivesUI : MonoBehaviour
@@ -8,11 +9,16 @@ public class ObjectivesUI : MonoBehaviour
     public Image img;
     Transform target;
     public Transform cam;
+    public GameObject gameOverUI;
+    public Text scoreText;
 
     private void Start()
     {
         ObjectiveManager.instance.onNewObjective.AddListener(ChangeObjective);
         target = ObjectiveManager.instance.currentObjective.transform;
+
+        ObjectiveManager.instance.onGameOver.AddListener(GameOver);
+        gameOverUI.SetActive(false);
     }
 
     void ChangeObjective()
@@ -47,6 +53,19 @@ public class ObjectivesUI : MonoBehaviour
 
         img.transform.position = pos;
 
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene("ActualGame");
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
 
+    void GameOver()
+    {
+        gameOverUI.SetActive(true);
+        scoreText.text = ObjectiveManager.instance.score.ToString();
     }
 }
